@@ -10,6 +10,7 @@
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | System design |
 | [STACK.md](./STACK.md) | Technology choices |
 | [ROADMAP.md](./ROADMAP.md) | Future plans (see also GitHub Issues) |
+| [VISION_LISTEN_AND_PC.md](./VISION_LISTEN_AND_PC.md) | Telegram-as-Pocket listen + PC read-only essentials |
 | [OPENCLAW_HERMES.md](./OPENCLAW_HERMES.md) | Contrast with action agents |
 
 Root: [README.md](../README.md) · [SECURITY.md](../SECURITY.md) · [CONTRIBUTING.md](../CONTRIBUTING.md) · [AGENTS.md](../AGENTS.md)

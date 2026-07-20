@@ -84,15 +84,18 @@ Independent open source — **not** affiliated with the franchise. Full write-up
 
 | Does | Refuses |
 |------|---------|
-| Listen (text + voice) | Email, calendar write, browse, shell |
+| Listen (text + long voice = Pocket-style) | Always-on secret mic; acting for you |
+| **Read** PC essentials (calendar/mail/files → vault) | Email **send**, calendar **write**, browse, shell |
 | Store in Markdown you own | Opaque “AI memory” only |
-| Discuss & resurface open loops | Romance / therapist cosplay |
+| Remind, adapt, gentle discuss | Romance / therapist cosplay |
 | Optional proactive briefs | Unlimited nagging (`/quiet`, daily caps) |
 
 | Feature | Status |
 |---------|--------|
 | Telegram text / voice in / TTS out | Yes |
-| Per-user vault, sessions, `/close` extract | Yes |
+| `/listen` long audio sessions (Telegram as Pocket) | Yes |
+| PC read-only essentials (`farzana pc-reader`) | Yes (ICS / EML / MD drops) |
+| Vault sessions, `/close` extract | Yes |
 | Proactive briefs / promise scan | Yes (UTC; timezones on roadmap) |
 | Single-user only (`TELEGRAM_USER_ID`) | Yes |
 | External actions | **Never** |
@@ -115,7 +118,16 @@ uv run farzana --no-webhook   # http://127.0.0.1:8000
 ```
 
 **Telegram single-user + optional ngrok:** [docs/SETUP.md](docs/SETUP.md)  
+**Telegram as Pocket + PC eyes:** [docs/VISION_LISTEN_AND_PC.md](docs/VISION_LISTEN_AND_PC.md)  
 Optional VPS/Terraform (placeholders only): [deploy/README.md](deploy/README.md)
+
+```bash
+# Long listen on Telegram: /listen Meeting name → long voice clips → /stop or /close
+
+# On your PC — drop calendar/mail exports, read-only into vault:
+mkdir FarzanaInbox
+uv run farzana pc-reader --watch ./FarzanaInbox --once
+```
 
 ### Secrets
 

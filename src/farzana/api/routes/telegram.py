@@ -1,4 +1,4 @@
-"""Telegram webhook — single-user owner only."""
+"""Telegram webhook — single-user; voice/audio/document audio for listen mode."""
 
 from __future__ import annotations
 
@@ -14,6 +14,20 @@ from farzana.workers.tasks import handle_text_message, handle_voice_message
 
 log = logging.getLogger(__name__)
 router = APIRouter(tags=["telegram"])
+
+
+def _audio_file_id(message: dict) -> tuple[str, str] | None:
+    """Return (file_id, kind) for voice, audio, or audio document."""
+    if message.get("voice"):
+        return message["voice"]["file_id"], "voice"
+    if message.get("audio"):
+        return message["audio"]["file_id"], "audio"
+    doc = message.get("document") or {}
+    mime = (doc.get("mime_type") or "").lower()
+    if doc.get("file_id") and mime.startswith("audio/"):
+        return doc["file_id"], "document"
+    # some clients send video_note — skip for now
+    return None
 
 
 @router.post("/telegram/{secret}")
@@ -48,12 +62,11 @@ async def telegram_webhook(
                 log.exception("notify unauthorized failed")
         return {"ok": True, "authorized": False}
 
-    voice = message.get("voice") or message.get("audio")
-    if voice and chat_id:
-        file_id = voice.get("file_id")
-        if file_id:
-            handle_voice_message.delay(chat_id, user_id, file_id, username)
-            return {"ok": True, "type": "voice", "queued": True}
+    audio = _audio_file_id(message)
+    if audio and chat_id:
+        file_id, kind = audio
+        handle_voice_message.delay(chat_id, user_id, file_id, username, kind)
+        return {"ok": True, "type": kind, "queued": True}
 
     text = message.get("text")
     if text and chat_id:
@@ -64,7 +77,7 @@ async def telegram_webhook(
         handle_text_message.delay(
             chat_id,
             user_id,
-            "(unsupported message type — send text or a voice note)",
+            "(unsupported type — send text, voice, or audio file; /listen for long capture)",
             username,
             False,
         )

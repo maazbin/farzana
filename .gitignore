@@ -46,6 +46,8 @@ htmlcov/
 vault/users/
 vault/config/chat.json
 vault/config/profile.md
+vault/config/listen.json
+vault/config/pc_reader_state.json
 vault/inbox/
 vault/sessions/
 vault/promises/
@@ -57,6 +59,7 @@ vault/people/
 vault/graphs/
 vault/registry/
 vault/tmp/
+vault/pc/
 !vault/config/.gitkeep
 !vault/**/.gitkeep
 

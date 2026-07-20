@@ -22,6 +22,11 @@ def ensure_vault(root: Path) -> None:
         "proactive",
         "graphs",
         "tmp",
+        "pc",
+        "pc/calendar",
+        "pc/mail",
+        "pc/files",
+        "pc/inbox",
     ):
         (root / rel).mkdir(parents=True, exist_ok=True)
 
@@ -210,5 +215,11 @@ def recent_context(root: Path, limit_chars: int = 3000) -> str:
         chunks.append(p.read_text(encoding="utf-8", errors="ignore")[-1500:])
     for p in list_open_promises(root)[:5]:
         chunks.append(p.read_text(encoding="utf-8", errors="ignore")[:800])
+    # PC essentials (calendar/mail/files) — read-only imports
+    pc_root = root / "pc"
+    if pc_root.is_dir():
+        pc_files = sorted(pc_root.rglob("*.md"), key=lambda x: x.stat().st_mtime, reverse=True)[:6]
+        for p in pc_files:
+            chunks.append(p.read_text(encoding="utf-8", errors="ignore")[:1000])
     text = "\n---\n".join(chunks)
     return text[-limit_chars:]

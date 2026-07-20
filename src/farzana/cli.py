@@ -6,6 +6,7 @@ Farzana CLI
   uv run farzana health
   uv run farzana serve --no-webhook   # API only
   uv run farzana worker
+  uv run farzana pc-reader --watch ~/FarzanaInbox --once
 """
 
 from __future__ import annotations
@@ -118,10 +119,26 @@ def _cmd_health(_args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_pc_reader(args: argparse.Namespace) -> int:
+    """Read-only PC essentials → vault (ICS / EML / MD drops)."""
+    from farzana.pc_reader.__main__ import main as pc_main
+
+    argv: list[str] = ["--watch", str(args.watch)]
+    if args.vault:
+        argv.extend(["--vault", str(args.vault)])
+    if args.once:
+        argv.append("--once")
+    if args.interval != 15.0:
+        argv.extend(["--interval", str(args.interval)])
+    if args.verbose:
+        argv.append("--verbose")
+    return pc_main(argv)
+
+
 def main(argv: list[str] | None = None) -> None:
     raw = list(sys.argv[1:] if argv is None else argv)
 
-    known = {"serve", "webhook", "worker", "health", "-h", "--help"}
+    known = {"serve", "webhook", "worker", "health", "pc-reader", "-h", "--help"}
     if not raw:
         raw = ["serve"]
     elif raw[0] not in known:
@@ -163,6 +180,36 @@ def main(argv: list[str] | None = None) -> None:
 
     p_health = sub.add_parser("health", help="Check .env")
     p_health.set_defaults(func=_cmd_health)
+
+    p_pc = sub.add_parser(
+        "pc-reader",
+        help="Read-only PC essentials (ICS/EML/MD) → vault — never send/book",
+    )
+    p_pc.add_argument(
+        "--watch",
+        "-w",
+        required=True,
+        help="Folder where you drop calendar/mail/file exports",
+    )
+    p_pc.add_argument(
+        "--vault",
+        "-v",
+        default=None,
+        help="Vault root (default: VAULT_PATH from .env)",
+    )
+    p_pc.add_argument(
+        "--once",
+        action="store_true",
+        help="Scan once and exit",
+    )
+    p_pc.add_argument(
+        "--interval",
+        type=float,
+        default=15.0,
+        help="Poll seconds when watching (default 15)",
+    )
+    p_pc.add_argument("--verbose", action="store_true")
+    p_pc.set_defaults(func=_cmd_pc_reader)
 
     args = parser.parse_args(raw)
     raise SystemExit(args.func(args))

@@ -65,7 +65,21 @@ uv run farzana health
 uv run farzana --no-webhook
 ```
 
-API listens on **http://127.0.0.1:8000**  
+API listens on **http://127.0.0.1:8000**
+
+### PC essentials (read-only)
+
+On the machine that has your calendar/mail exports:
+
+```bash
+mkdir FarzanaInbox   # drop .ics / .eml / .md here
+uv run farzana pc-reader --watch ./FarzanaInbox --once
+# keep watching:
+uv run farzana pc-reader --watch ./FarzanaInbox
+```
+
+This only **reads** into `vault/pc/` — never sends email or books meetings.  
+If the bot runs on EC2, either run the reader there against a synced vault, or sync `vault/pc/` from your PC (e.g. Syncthing).  
 Health: http://127.0.0.1:8000/health
 
 ---

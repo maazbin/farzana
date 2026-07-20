@@ -12,26 +12,27 @@ Tracked in GitHub Issues. This file is a summary.
 - [x] Session open/close + promise extract  
 - [x] Proactive morning/evening + promise scan  
 - [x] Pattern event logging  
-- [x] EC2 deploy notes + Terraform module  
+- [x] **/listen** Pocket-style long audio sessions on Telegram  
+- [x] PC read-only folder watcher (ICS / EML / MD → `vault/pc/`)  
+- [x] Deploy notes + Terraform module  
 
 ## Near term
 
-- Timezone-aware briefs (not only UTC)  
-- Better pattern “evolve” pass (summarize events → `patterns/*.md`)  
-- Hybrid search (FTS + embeddings) over vault  
-- Stronger quiet/proactivity levels UX  
-- Grey-cloud / production domain webhook path  
-- Tests (unit + webhook payload fixtures)  
-- CI (lint + secret scan + tests)  
+- Improve long-audio (chunk merge, duration limits, better acks)  
+- PC reader: recursive watch, PDF text, optional Syncthing recipes  
+  
+- Timezone-aware briefs  
+- Pattern evolve pass  
+- Hybrid search over vault  
+- Tests + CI + secret scan  
 
 ## Later
 
-- Optional long-polling mode for local DX  
-- WhatsApp adapter (template-aware)  
-- Import from Pocket/Plaud exports  
-- Optional Mermaid maps on session close  
-- One-line installer (still no action tools)  
-- Multi-instance / harder tenancy  
+- Read-only OAuth calendar/mail (still no send/book)  
+- Optional long-polling for local DX  
+- WhatsApp adapter  
+- Hardware/Pocket export import  
+- Mermaid maps on `/close`
 
 ## Explicit non-goals (unless product decision flips)
 

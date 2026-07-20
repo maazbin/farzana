@@ -13,11 +13,15 @@
 - Read/write **vault Markdown** (whitelisted paths).  
 - Search vault index.  
 - Send **text/voice only to the allowed user** on Telegram.  
-- Schedule jobs that only do the above.
+- Schedule jobs that only do the above.  
+- **Read** PC essentials into the vault (calendar/mail/files) when the user enables a reader — **never write/send/book**.  
+- Long Telegram audio in **/listen** mode (Pocket-style capture).
 
-**Forbidden (v1 — no exceptions without product decision):**
+**Forbidden (no exceptions without product decision):**
 
-- Email, calendar write, browser, shell, payments, social posts, arbitrary HTTP to third parties (except OpenAI/Telegram APIs we already use), file delete outside policy, multi-user spam.
+- Email **send**, calendar **write**, browser automation as agent, shell, payments, social posts.  
+- Arbitrary HTTP except OpenAI/Telegram (and optional read-only OAuth providers).  
+- Multi-user / open bot mode.
 
 ### A2. Markdown is source of truth
 
