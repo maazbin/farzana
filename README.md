@@ -3,104 +3,373 @@
 **The aide who listens carefully.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/)
+[![Stack](https://img.shields.io/badge/Stack-FastAPI%20%7C%20OpenAI%20%7C%20Telegram-informational.svg)](docs/STACK.md)
+[![Mode](https://img.shields.io/badge/Mode-Read--only%20memory-success.svg)](docs/RULES.md)
 
-Farzana is a **read-only Markdown memory aide** on Telegram.  
-She captures what you say (text or voice), keeps it in **files you own**, discusses open loops, and can resurface them later — **without** sending email, browsing, or running agent tools on your behalf.
+> **Capture → Vault → Discuss / Remind**  
+> Never send email · never book calendar · never act for you.
 
-> Not an action agent (OpenClaw / Hermes).  
-> Not a hardware stenographer (Pocket).  
-> Not a romantic companion bot.
+Farzana is a **single-user, read-only Markdown memory aide** on Telegram.  
+She holds the thread of your day — long voice, short notes, and (optionally) PC exports you allow her to **read** — then talks with you gently when it matters.
 
----
-
-## Motivation (where this started)
-
-I built Farzana because **I have ADHD** and I still have to lead, ship, and remember people.
-
-The failure mode was simple and repeated:
-
-- Someone tells me something important — I can’t always note it in the moment.  
-- Even when I do note it, the note dies in a graveyard.  
-- Task notifications are cold: easy to swipe, empty of context.  
-- I wanted something that **cares enough to remind**, talks through the day and at day end, adapts to patterns — and **does not do the work for me**.
-
-That founding pain shaped the product: capture has to be frictionless, memory has to be visible, resurfacing has to be human, and agents that “just act” are too dangerous when attention and impulse are uneven.
-
-ADHD was the **motivation** — why I started. It is not a diagnosis product, and you do not need ADHD to benefit.
+| She is | She is not |
+|:-------|:-----------|
+| A careful listener | An action agent (OpenClaw / Hermes) |
+| Your Markdown memory | A hardware stenographer (Pocket) |
+| A discreet resurfacer | A romantic / therapist companion |
 
 ---
 
-## Most assistants assume you’re already organized
+## Table of contents
 
-Look at the landscape: calendars, todo suites, “second brains,” and agent tools usually work best when you already:
+- [Big picture](#-big-picture)
+- [How a day flows](#-how-a-day-flows)
+- [Flow 1 · Everyday chat](#-flow-1--everyday-chat)
+- [Flow 2 · Telegram as Pocket (`/listen`)](#-flow-2--telegram-as-pocket-listen)
+- [Flow 3 · PC essentials (read-only)](#-flow-3--pc-essentials-read-only)
+- [Flow 4 · Close, extract, discuss](#-flow-4--close-extract-discuss)
+- [Flow 5 · Remind & check-in](#-flow-5--remind--check-in)
+- [System map](#-system-map)
+- [Vault layout](#-vault-layout--memory-is-files)
+- [Commands](#-commands-cheat-sheet)
+- [Quick start](#-quick-start)
+- [Motivation & name](#-motivation--name)
+- [Docs](#-docs)
 
-- open the app on purpose  
-- maintain the system  
-- trust yourself to follow through  
-- can ignore noise and still find the signal  
+---
 
-They reward people who are **already up**. If you’re there, many tools are fine.
+## Big picture
 
-**Farzana was built from the opposite direction.**
+```mermaid
+flowchart LR
+  subgraph IN["📥 Inputs"]
+    T["💬 Telegram<br/>text · voice · audio"]
+    L["🎙️ /listen mode<br/>long sessions"]
+    P["💻 PC reader<br/>.ics · .eml · .md"]
+  end
 
-ADHD forced a different pattern: capture must work when you *can’t* pause, memory must be visible when you don’t trust your head, reminders must *care* (context + discussion, not only badges), and the system must not take dangerous actions when impulse is high.
+  subgraph CORE["🧠 Farzana"]
+    V[("📁 Markdown vault<br/>source of truth")]
+    AI["✨ OpenAI<br/>chat · STT · TTS"]
+  end
 
-That pattern does not only serve ADHD. It can help a **low-capacity day** become a higher-capacity life — for anyone who:
+  subgraph OUT["📤 Outputs — discuss only"]
+    R["💬 Replies · voice notes"]
+    B["☀️ Morning / 🌙 evening brief"]
+    N["🔔 Open-loop check-ins"]
+  end
 
-- loses spoken promises  
-- abandons note apps after a week  
-- feels behind, not “optimized”  
-- wants support without an agent that acts for them  
-
-You don’t need ADHD for that. ADHD was just the **reason the bar was set high**.  
-Pass a hard bar, and people starting lower get a ladder — not another tool that assumes they already climbed.
+  T --> V
+  L --> V
+  P --> V
+  V <--> AI
+  AI --> R
+  AI --> B
+  V --> N
+  N --> R
+```
 
 ```text
-Most tools:  built for people who already run a system
-Farzana:     built so you can hold a thread even when the system fails
-Motivation:  ADHD under load
-Audience:    anyone who needs the thread held
+   LISTEN + READ  ──►  VAULT  ──►  REMIND · ADAPT · GENTLE DISCUSS
+                         │
+                         └── never write email / book / browse / shell
 ```
 
 ---
 
-## Inspiration: Farzana of Inspector Jamshed (Ishtiaq Ahmed)
+## How a day flows
 
-The name comes from **careful listening** in our storytelling culture: **Ishtiaq Ahmed’s Inspector Jamshed** novels, where Jamshed works with his children **Mehmood**, **Farooq**, and **Farzana**.
+```mermaid
+flowchart TB
+  M["☀️ Morning brief<br/>scheduled · optional"]
+  D["💬 Daytime capture<br/>text · voice · /listen"]
+  PC["💻 PC drops<br/>calendar / mail / notes"]
+  C["📎 /close session<br/>extract promises"]
+  S["🔔 Occasional open-loop nudge<br/>if promises exist · daily cap"]
+  E["🌙 Evening debrief<br/>scheduled · optional"]
 
-In that public memory, Farzana is not the loudest hero. She is present, sharp, and **listens carefully** — holding the thread of the case while others rush into noise.
-
-```text
-You are the inspector of your own day.
-Farzana catches the thread.
-You still decide. She never seizes the badge.
+  M --> D
+  D --> C
+  PC --> D
+  C --> S
+  S --> E
+  D --> E
 ```
 
-Independent open source — **not** affiliated with the franchise. Full write-up: [docs/INSPIRATION.md](docs/INSPIRATION.md).
+| Time | What happens | You control |
+|:-----|:-------------|:------------|
+| ☀️ Morning | Short brief from vault + open promises | Hours in env (UTC); `/quiet` stops all |
+| 💬 Day | Chat, long `/listen`, PC imports | You start / stop capture |
+| 📎 Close | `/close` → promises landed in vault | You decide when to close |
+| 🔔 Check-in | May resurface **one** open loop | Max ~3 proactive msgs/day |
+| 🌙 Evening | Gentle debrief of what was held | Same caps / quiet rules |
+
+> Honest limits: **adapt** today means grounded memory + quiet mode, not full ML “learns your patterns yet.”  
+> **Remind** is open-loop resurfacing + briefs — not a full calendar alarm engine.
 
 ---
 
-## What she does
+## Flow 1 · Everyday chat
 
-| Does | Refuses |
-|------|---------|
-| Listen (text + long voice = Pocket-style) | Always-on secret mic; acting for you |
-| **Read** PC essentials (calendar/mail/files → vault) | Email **send**, calendar **write**, browse, shell |
-| Store in Markdown you own | Opaque “AI memory” only |
-| Remind, adapt, gentle discuss | Romance / therapist cosplay |
-| Optional proactive briefs | Unlimited nagging (`/quiet`, daily caps) |
+```mermaid
+sequenceDiagram
+  actor You
+  participant TG as Telegram
+  participant API as FastAPI webhook
+  participant W as Worker / task
+  participant V as Vault
+  participant AI as OpenAI
+  participant Bot as Farzana reply
 
-| Feature | Status |
-|---------|--------|
-| Telegram text / voice in / TTS out | Yes |
-| `/listen` long audio sessions (Telegram as Pocket) | Yes |
-| PC read-only essentials (`farzana pc-reader`) | Yes (ICS / EML / MD drops) |
-| Vault sessions, `/close` extract | Yes |
-| Proactive briefs / promise scan | Yes (UTC; timezones on roadmap) |
-| Single-user only (`TELEGRAM_USER_ID`) | Yes |
-| External actions | **Never** |
+  You->>TG: text or short voice
+  TG->>API: POST /telegram/{secret}
+  API->>API: owner check (single user)
+  API->>W: enqueue handle_*
+  API-->>TG: 200 quick ACK
+  W->>AI: STT if voice
+  W->>V: append inbox / session
+  W->>AI: dialogue + memory context
+  W->>Bot: text and/or TTS voice
+  Bot-->>You: reply
+```
 
-**Memory model:** files are truth; the model only gets a temporary view. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+**In plain words**
+
+1. Only **your** Telegram user id is allowed.  
+2. Message is saved into **Markdown you own**.  
+3. Reply is grounded in recent vault context.  
+4. Optional **voice out** (TTS) when enabled.
+
+---
+
+## Flow 2 · Telegram as Pocket (`/listen`)
+
+Telegram bots **cannot** hold a secret always-on mic.  
+Farzana does the practical equivalent: **long sessions** of voice/audio chunks.
+
+```mermaid
+flowchart TB
+  A["1️⃣ /listen Meeting name"] --> B["2️⃣ Hold record · long voice<br/>or send audio file"]
+  B --> C["3️⃣ Whisper STT"]
+  C --> D["4️⃣ Append chunk → session.md<br/>quiet ack 👂"]
+  D --> E{"More audio?"}
+  E -->|yes| B
+  E -->|no| F["5️⃣ /stop  or  /close"]
+  F --> G["Session held · optional extract"]
+```
+
+| Step | You | Farzana |
+|:-----|:----|:--------|
+| Start | `/listen Standup` | Opens / continues a named session |
+| Speak | Long Telegram voice notes (many clips OK) | Transcribes · **appends** · short ack |
+| Pause | Keep sending clips anytime | Same session grows |
+| End | `/stop` or `/close` | Leaves listen mode; `/close` extracts promises |
+
+```text
+/listen Design review
+   🎤 clip 1  →  heard chunk 1
+   🎤 clip 2  →  heard chunk 2
+   🎤 clip 3  →  heard chunk 3
+/close
+   → summary + open promises in vault
+```
+
+📖 Detail: [docs/VISION_LISTEN_AND_PC.md](docs/VISION_LISTEN_AND_PC.md)
+
+---
+
+## Flow 3 · PC essentials (read-only)
+
+Give Farzana **eyes on the PC**, never **hands**.
+
+```mermaid
+flowchart LR
+  subgraph PC["💻 Your PC"]
+    F["📂 Drop folder<br/>FarzanaInbox"]
+    ICS["📅 .ics calendar export"]
+    EML["✉️ .eml saved mail"]
+    MD["📝 .md / .txt notes"]
+    ICS --> F
+    EML --> F
+    MD --> F
+  end
+
+  R["🔍 farzana pc-reader<br/>read only"]
+  V[("📁 vault/pc/<br/>calendar · mail · files")]
+
+  F --> R --> V
+  V --> T["💬 Telegram discuss / brief"]
+```
+
+| Drop | Lands in | Write-back? |
+|:-----|:---------|:------------|
+| `.ics` | `vault/pc/calendar/` | ❌ never books |
+| `.eml` | `vault/pc/mail/` | ❌ never sends |
+| `.md` / `.txt` | `vault/pc/files/` | ❌ only vault copy |
+
+```bash
+mkdir FarzanaInbox
+# export calendar → .ics, save mail → .eml, drop notes → .md
+
+uv run farzana pc-reader --watch ./FarzanaInbox --once
+# or keep watching:
+uv run farzana pc-reader --watch ./FarzanaInbox
+```
+
+If the bot runs on a server, run the reader where the vault lives — or **sync** `vault/pc/` (e.g. Syncthing).
+
+---
+
+## Flow 4 · Close, extract, discuss
+
+```mermaid
+flowchart LR
+  S["📓 Open session<br/>listen or Note this"] --> C["/close"]
+  C --> X["✨ Extract promises / ideas"]
+  X --> P["📌 vault/promises/open"]
+  X --> D["💬 Discuss summary with you"]
+  P --> N["🔔 Later check-ins"]
+```
+
+| Command | Effect |
+|:--------|:-------|
+| `Note this: project-x` | Open / continue a session |
+| `/listen project-x` | Same, optimized for long audio |
+| `/close` or `/close project-x` | Close session · extract · discuss |
+| `/stop` | Leave listen mode only (no extract) |
+
+---
+
+## Flow 5 · Remind & check-in
+
+```mermaid
+flowchart TB
+  SCH["⏰ In-process scheduler<br/>while farzana is running"]
+  SCH --> M["☀️ Morning brief<br/>MORNING_BRIEF_HOUR_UTC"]
+  SCH --> E["🌙 Evening debrief<br/>EVENING_DEBRIEF_HOUR_UTC"]
+  SCH --> P["🔁 Promise scan<br/>every PROACTIVE_SCAN_MINUTES"]
+
+  M --> G{"proactive on?<br/>not /quiet?<br/>under daily cap?"}
+  E --> G
+  P --> G
+  G -->|yes| SEND["📤 Telegram message / voice"]
+  G -->|no| SILENT["🤫 Stay quiet"]
+  P --> HAS{"open promises?"}
+  HAS -->|no| SILENT
+  HAS -->|yes| G
+```
+
+| Behavior | Reality today |
+|:---------|:--------------|
+| End-of-day discuss | ✅ Evening brief job (UTC hour) |
+| Occasional “still open?” | ✅ One open promise at a time |
+| Daily spam protection | ✅ Default max **3** proactive / day |
+| Full task-manager nagging | ❌ Not a todo app |
+| True pattern learning | ⏳ Logged events; evolve later |
+
+Manual anytime: **`/brief`** · silence: **`/quiet`**
+
+---
+
+## System map
+
+```mermaid
+flowchart TB
+  subgraph Edge["🌐 Edge"]
+    TG["Telegram Bot API"]
+    TLS["HTTPS public origin<br/>PUBLIC_BASE_URL"]
+  end
+
+  subgraph App["🐍 Farzana process"]
+    FA["FastAPI<br/>thin routes"]
+    SC["APScheduler<br/>briefs · scan"]
+    TK["Tasks<br/>text · voice · listen · close"]
+    SV["Services<br/>vault · dialogue · STT · TTS"]
+  end
+
+  subgraph Data["💾 Data"]
+    MD[("vault/**/*.md")]
+  end
+
+  subgraph AI["☁️ OpenAI"]
+    CH["Chat"]
+    WH["Whisper STT"]
+    TS["TTS"]
+  end
+
+  TG --> TLS --> FA
+  FA --> TK
+  SC --> TK
+  TK --> SV
+  SV --> MD
+  SV --> CH
+  SV --> WH
+  SV --> TS
+  SV --> TG
+```
+
+| Layer | Role |
+|:------|:-----|
+| `api/` | Webhook only — authz, enqueue, fast 200 |
+| `workers/` | Message handling, listen, proactive tasks |
+| `services/` | Vault, dialogue, STT/TTS, Telegram client |
+| `pc_reader/` | Local CLI — PC drops → vault |
+| `core/` | Config, single-user security |
+
+Local shortcut: `CELERY_TASK_ALWAYS_EAGER=true` runs jobs in-process (no Redis required).
+
+---
+
+## Vault layout · memory is files
+
+```text
+vault/
+├── config/          identity, prefs, listen state
+├── inbox/           daily capture stream
+├── sessions/        named notes + /listen sessions
+├── promises/
+│   ├── open/        📌 resurfaced later
+│   └── closed/
+├── pc/
+│   ├── calendar/    from .ics
+│   ├── mail/        from .eml
+│   └── files/       from .md / .txt
+├── proactive/       why each outbound fired
+└── patterns/        event log (future adapt)
+```
+
+```mermaid
+flowchart LR
+  subgraph Truth["✅ Source of truth"]
+    MD["Your .md files"]
+  end
+  subgraph Temp["⏳ Temporary"]
+    LLM["LLM context window"]
+  end
+  MD --> LLM
+  LLM -.->|never the only copy| X["❌"]
+```
+
+You can open the vault in any editor. **Files win.**
+
+---
+
+## Commands cheat sheet
+
+| Command | Icon | What it does |
+|:--------|:----:|:-------------|
+| `/start` | 👋 | Hello + how to use |
+| `/help` | ❓ | Command list |
+| `/listen [name]` | 🎙️ | Pocket-style long audio session |
+| `/stop` | ⏹️ | Leave listen mode |
+| `/close [name]` | 📎 | Close session · extract · discuss |
+| `Note this: name` | 📝 | Open / continue a text session |
+| `/brief` | 📋 | Manual brief now |
+| `/quiet` | 🤫 | No proactive messages |
+| `/voice on\|off` | 🔊 | Voice reply preference |
+
+Plus free text or short voice anytime.
 
 ---
 
@@ -110,50 +379,93 @@ Independent open source — **not** affiliated with the franchise. Full write-up
 git clone https://github.com/maazbin/farzana.git
 cd farzana
 cp .env.example .env
-# TELEGRAM_* + OPENAI_API_KEY — never commit .env
+# fill TELEGRAM_BOT_TOKEN, TELEGRAM_USER_ID, OPENAI_API_KEY
+# never commit .env
 
 uv sync
 uv run farzana health
-uv run farzana --no-webhook   # http://127.0.0.1:8000
+uv run farzana --no-webhook   # API → http://127.0.0.1:8000
 ```
 
-**Telegram single-user + optional ngrok:** [docs/SETUP.md](docs/SETUP.md)  
-**Telegram as Pocket + PC eyes:** [docs/VISION_LISTEN_AND_PC.md](docs/VISION_LISTEN_AND_PC.md)  
-Optional VPS/Terraform (placeholders only): [deploy/README.md](deploy/README.md)
+**Wire Telegram**
 
-```bash
-# Long listen on Telegram: /listen Meeting name → long voice clips → /stop or /close
+1. Set `PUBLIC_BASE_URL` to any public HTTPS origin that reaches port `8000` (tunnel or VPS).  
+2. `uv run farzana` **or** `uv run farzana webhook` after the API is up.  
+3. Message the bot from the account matching `TELEGRAM_USER_ID` → `/start`.
 
-# On your PC — drop calendar/mail exports, read-only into vault:
-mkdir FarzanaInbox
-uv run farzana pc-reader --watch ./FarzanaInbox --once
+```mermaid
+flowchart LR
+  A["1 · .env secrets"] --> B["2 · uv run farzana"]
+  B --> C["3 · PUBLIC_BASE_URL + webhook"]
+  C --> D["4 · /start on Telegram"]
+  D --> E["5 · /listen or just talk"]
 ```
+
+| Guide | Link |
+|:------|:-----|
+| Full setup | [docs/SETUP.md](docs/SETUP.md) |
+| Listen + PC vision | [docs/VISION_LISTEN_AND_PC.md](docs/VISION_LISTEN_AND_PC.md) |
+| Deploy templates | [deploy/README.md](deploy/README.md) |
 
 ### Secrets
 
-Never commit `.env`, `*.pem`, or API tokens. Rotate anything that leaked.
+Never commit `.env`, `*.pem`, bot tokens, or API keys.  
+Rotate anything that leaked. See [SECURITY.md](SECURITY.md).
 
 ---
 
-## Using the bot
+## Motivation & name
 
-1. Public `PUBLIC_BASE_URL` + `uv run farzana` (or webhook after tunnel).  
-2. `/start` from the Telegram account in `TELEGRAM_USER_ID`.  
-3. Text or voice note.  
-4. `Note this: …` → `/close`.  
-5. `/brief` · `/quiet` · `/voice on|off`.
+### Why it exists
+
+Built because **ADHD under leadership load** made cold todos and silent notes fail: spoken promises vanish, notes die in graveyards, and agents that “just act” are dangerous when attention is uneven.
+
+ADHD was the **motivation** — not a diagnosis product. The same design helps anyone who loses the thread on a low-capacity day.
+
+```text
+Most tools:  assume you already run a system
+Farzana:     holds the thread when the system fails
+```
+
+### Why “Farzana”
+
+Named for **careful listening** in the public memory of **Ishtiaq Ahmed’s Inspector Jamshed** stories (Jamshed with Mehmood, Farooq, and Farzana) — present, sharp, holds the case thread.
+
+```text
+You are the inspector of your own day.
+Farzana catches the thread.
+You still decide. She never seizes the badge.
+```
+
+Independent open source — **not** affiliated with the franchise.  
+→ [docs/INSPIRATION.md](docs/INSPIRATION.md) · [docs/STORY.md](docs/STORY.md)
+
+---
+
+## What she refuses
+
+```text
+❌ Send email          ❌ Book / change calendar
+❌ Browse as an agent  ❌ Shell / code on your machine
+❌ Multi-user open bot ❌ Always-on secret microphone
+❌ Romance / therapist cosplay
+```
+
+Enforced by product rules and by **not implementing** forbidden tools — see [docs/RULES.md](docs/RULES.md).
 
 ---
 
 ## Docs
 
 | Doc | Content |
-|-----|---------|
-| [STORY.md](docs/STORY.md) | Full product + founder origin |
-| [INSPIRATION.md](docs/INSPIRATION.md) | Jamshed / Farzana myth |
+|:----|:--------|
+| [STORY.md](docs/STORY.md) | Product + origin |
+| [INSPIRATION.md](docs/INSPIRATION.md) | Name & listening myth |
 | [MOTIVATION.md](docs/MOTIVATION.md) | Why / when / when not |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | Technical shape |
+| [VISION_LISTEN_AND_PC.md](docs/VISION_LISTEN_AND_PC.md) | Pocket + PC flows |
 | [RULES.md](docs/RULES.md) · [SECURITY.md](SECURITY.md) | Hard rules |
-| [ROADMAP.md](docs/ROADMAP.md) | Future |
+| [ROADMAP.md](docs/ROADMAP.md) | What’s next |
 
 ---
 
@@ -168,4 +480,4 @@ Never commit `.env`, `*.pem`, or API tokens. Rotate anything that leaked.
 ---
 
 *Started from ADHD under load — that was the motivation.*  
-*Built so anyone who needs a thread held can climb, even without ADHD.*
+*Built so anyone who needs a thread held can climb.*
