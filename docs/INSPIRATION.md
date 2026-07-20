@@ -12,23 +12,25 @@ We wanted a name that already carried **attention**, **intelligence**, and a fac
 
 That name is **Farzana**.
 
+It also had to answer a personal wound: **ADHD under leadership load** — a mind that loses the moment, even when it tries to note, even when cold apps “remind.” The founder needed a teammate who listens like family myth taught us someone could listen. See [STORY.md § Origin pain](./STORY.md#origin-pain-founder-story--adhd--leadership) and the dramatic founder section in the root **README**.
+
 ---
 
-## The world of Inspector Jamshed
+## The world of Inspector Jamshed (Ishtiaq Ahmed)
 
-**Inspector Jamshed** is a long-running series of Urdu detective and espionage novels by Pakistani author **Ishtiaq Ahmed** (often also referred to in popular culture alongside related Jamshed-era detective fiction that filled bookstalls and childhoods across the region). For many readers, Jamshed was not a distant Hollywood detective — he was **local**, moral, adventurous, and endlessly busy with cases that mixed crime, conspiracy, and nation-scale stakes.
+**Inspector Jamshed** is a long-running series of Urdu detective and espionage novels by Pakistani author **Ishtiaq Ahmed**. For many readers across Pakistan and the diaspora, Jamshed was not a distant Hollywood detective — he was **local**, moral, adventurous, and endlessly busy with cases that mixed crime, conspiracy, and stakes larger than one ego. The books filled stalls, schoolbags, and shared memory for a generation (and beyond).
 
-Around him stood a small, loyal circle. Most famously, **his three children**:
+Jamshed does not work alone. Beside him stand **his three children** — a household that became as famous as the badge:
 
-| Name | Role in the myth (public memory) |
-|------|-----------------------------------|
-| **Mehmood** | Clever, sharp, often the quick mind in the room |
-| **Farooq** | Energy, action, the push into the field |
-| **Farzana** | Present, intelligent, the one who **listens** and holds what was said |
+| Name | Role in the myth (public / reader memory) |
+|------|-------------------------------------------|
+| **Mehmood** | Clever, sharp — often the quick mind in the room |
+| **Farooq** | Energy, field push — motion into the danger |
+| **Farzana** | Present, intelligent — the one who **listens carefully** and holds what was said |
 
-Supporting figures in the broader legend (Khan Rehman, Professor Dawood, Sub-Inspector Ikraam, and others) filled out a world where **no one solved everything alone**. Cases were won by a *team of different strengths* — strategy, science, field work, and attention.
+Supporting figures in the broader legend (among them retired army wisdom, scientific expertise, field officers such as those readers remember around the Jamshed circle) filled out a world where **no one solved everything alone**. Cases were won by a *team of different strengths* — strategy, science, field work, and **attention**.
 
-Later generations also met the myth again through adaptations and retellings (including modern web/screen projects that reintroduce Jamshed and the kids to new audiences). The details of any single novel or episode matter less for us than the **emotional imprint** left on readers:
+Later generations met the myth again through adaptations and retellings (including modern screen projects that reintroduce Jamshed and the kids). The details of any single novel matter less for us than the **emotional imprint**:
 
 > Someone is always listening. Someone keeps the thread. Someone brings it back when the case turns.
 

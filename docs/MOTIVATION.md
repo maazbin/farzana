@@ -22,21 +22,30 @@ That inspiration is **emotional and functional**, not a franchise license:
 
 ## Why this product
 
-### Human why
+### Human why (including the founder’s ADHD)
 
-People (especially under leadership load or ADHD-like working-memory limits) **lose the moment**:
+The project began with a founder who has **ADHD** and must still **lead**. The original cry was simple and brutal:
 
-- They cannot open a notes app mid-conversation.
-- They write something and never reopen it.
-- Notifications train **ignore**, not action.
-- Shame after forgetting makes colder systems worse.
+> Someone tells me something — I can’t note it. Even if I note it, I forget. Notifications don’t care. I want something that *cares*, reminds, discusses my day, adapts to my patterns — and **does not do the work for me**.
+
+That is not a feature list. That is a life under load.
+
+People (with or without an ADHD diagnosis) **lose the moment**:
+
+- They cannot open a notes app mid-conversation.  
+- They write something and never reopen it.  
+- Notifications train **ignore**, not action.  
+- Shame after forgetting makes colder systems worse.  
+- Agent tools tempt impulsive “just fix it” moves that can wreck trust.
 
 They need **external working memory** that:
 
 1. Is easy to feed (Telegram text/voice).  
 2. Is **visible and editable** (Markdown).  
 3. **Initiates** follow-up with context and tone.  
-4. Does **not** take dangerous actions when the user is impulsive or overloaded.
+4. Does **not** take dangerous actions when the user is overloaded or impulsive.  
+
+**ADHD was the design stress-test.** Lone leaders, overloaded ICs, and anyone alone with too many open loops ride the same rails — without medical claims.
 
 ### Product why (gap)
 

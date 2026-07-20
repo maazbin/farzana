@@ -61,16 +61,33 @@ Farzana is the teammate who **caught the thread** — files it, and brings open 
 
 ---
 
-## Origin pain
+## Origin pain (founder story — ADHD + leadership)
 
-The founder is a **leader under load** (and designs under **ADHD-hard constraints**):
+This did not start as a pitch deck. It started as a **personal emergency of memory**.
 
-- Ideas, work, and “someone told me X” arrive faster than notes can stick.
-- Even written notes get forgotten; task notifications feel **cold** and get ignored.
-- Cold systems fail the interest-based / working-memory brain.
-- Wanted something that **cares enough to resurface**, discuss the day, and encourage from **real history** — not empty praise.
-- Explicitly **does not** want an agent that emails, browses, codes, or pays (OpenClaw / Hermes class).
-- Explicitly **does not** want a romantic / companion / therapist bot (Replika / Dot class).
+The founder lives with **ADHD** and also has to **lead** — people, work, promises, ideas that arrive mid-conversation and die by night.
+
+From the earliest notes that began the project (almost word for word):
+
+- *I have some idea or some work or someone tells me something and I can’t note it — or even if I do, I forget.*  
+- *I have task notifications, but I want something which cares about me, reminds me, records when I need to note, accepts text, asks when unclear.*  
+- *An emotional assistant more than a notification — talks at day end and during the day, discusses my schedule, keeps reminding me, tries to adapt my pattern of life.*  
+- *First version on mobile, talk using messaging; later the same mind on PC.*  
+- *It does not do work. Sole purpose: read, remind, encourage, discuss. Not OpenClaw. Not Hermes.*
+
+### Why ADHD was the design brief (not a marketing niche)
+
+| ADHD reality under load | Product rule it forced |
+|-------------------------|-------------------------|
+| Working memory drops mid-talk | Capture in seconds (Telegram text/voice) |
+| Even written notes vanish | Resurface — don’t only store |
+| Cold notifications train ignore | Discussion + optional voice, not badges only |
+| Shame after forgetting | Competence and loyalty, not scolding |
+| Impulsivity + powerful agents | **Read-only by architecture** — no external tools |
+| Patterns of life are real | Log response/ignore; evolve timing over time |
+
+**ADHD is the stress test**, not the only audience.  
+If it works when the mind is leaky under leadership load, it works for lone operators, overloaded employees, and anyone alone with too many open loops — **without** claiming to diagnose or treat ADHD.
 
 **Product name:** Farzana.
 
