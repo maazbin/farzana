@@ -181,8 +181,9 @@ uv run farzana health
 uv run farzana --no-webhook   # http://127.0.0.1:8000
 ```
 
-Full setup (webhook, single-user Telegram, deploy): **[docs/SETUP.md](docs/SETUP.md)**  
-AWS / Terraform: **[deploy/README.md](deploy/README.md)**
+Full setup (webhook, **optional ngrok**, single-user Telegram): **[docs/SETUP.md](docs/SETUP.md)**  
+
+Optional VPS/Terraform templates (placeholders only — no private hosts in git): **[deploy/README.md](deploy/README.md)**
 
 ### Secrets
 
