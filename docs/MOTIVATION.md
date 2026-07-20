@@ -30,8 +30,7 @@ That inspiration is **emotional and functional**, not a franchise license:
 
 That founding story shaped frictionless capture, visible memory, resurfacing, and read-only safety. It is **motivation and stress-test**, not a claim to diagnose or treat ADHD. The root **README** opens with this honestly, then turns to everyone else.
 
-**Transition — if you are already organized:**  
-Your calendar and todos cover what you *chose* to track. Farzana covers the **unscheduled half of life** — hallways, calls, spoken promises — with context, without agent risk. Organization and Farzana stack; they don’t compete.
+**Beyond that:** many people lose the **spoken, unfinished** half of life — even when they already use notes and calendars. Farzana holds that thread; it stacks with other tools rather than replacing them.
 
 People in general **lose the moment**:
 

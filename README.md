@@ -30,40 +30,18 @@ ADHD was the **motivation** and the **design stress-test** — not a medical cla
 
 ---
 
-## If you’re already organized — why still use it?
+## Beyond that — who else this is for
 
-You might keep a clean calendar. Inbox zero. A perfect notes system.
+The same gap shows up whenever life is **spoken and unfinished**:
 
-You still live in a world where **life is spoken faster than systems are updated**.
+- A promise in a call you couldn’t pause to type  
+- Context that never made it into the task title  
+- Notes scattered across apps you never reopen  
+- Wanting a mirror of open loops without handing control to an agent  
 
-| You’re organized, and yet… | What still breaks | What Farzana is for |
-|----------------------------|-------------------|---------------------|
-| You capture everything | You capture in **five apps**; nothing talks across them | One messaging surface → one vault |
-| You never “forget” | You forget **what was said in the hallway**, not the 3pm block | Voice/text capture *in the moment* |
-| Your todos are disciplined | Todos lack **context** (“Sarah — numbers — Friday — why”) | Sessions + promises with history |
-| You review weekly | Weekly review still needs a **honest mirror** of open loops | `/brief` and proactive resurfacing |
-| You don’t want AI chaos | Agents that send mail or browse are a liability | **Read-only** by architecture |
-| You trust your system | You still can’t **edit “what the AI remembers”** as plain files | Markdown you open in any editor |
+Farzana is for **holding the thread** — capture in the moment (text or voice), store in Markdown you own, discuss and resurface later, stay **read-only**.
 
-Organization optimizes **what you already decided to track**.  
-Farzana optimizes **what happens before a decision hits the system** — the conversation, the half-promise, the idea while walking.
-
-Think of it this way:
-
-```text
-Calendar / todos  =  the board you maintain on purpose
-Farzana           =  the teammate who was in the room and kept the thread
-```
-
-Even disciplined operators have rooms they can’t pause: calls, corridors, late-night thoughts.  
-If nothing holds that thread, organization only polishes the half of life that was already written down.
-
-**Same product, two doors:**
-
-| Door | Pitch |
-|------|--------|
-| **ADHD / high load** | External working memory when yours drops |
-| **Already organized** | Capture + resurfacing for the unscheduled half of life — without agent risk |
+It sits beside whatever system you already use. It does not replace your calendar. It catches what the calendar never heard.
 
 ---
 
@@ -159,4 +137,4 @@ Never commit `.env`, `*.pem`, or API tokens. Rotate anything that leaked.
 ---
 
 *Started for a mind that drops threads under load.*  
-*Useful for anyone whose life is partly unscheduled — even when the calendar is perfect.*
+*Useful whenever life is spoken faster than it gets written down.*

@@ -76,16 +76,11 @@ That stress-test forced: frictionless capture, visible Markdown, resurfacing, vo
 
 We do **not** claim to diagnose or treat ADHD.
 
-### Transition: already organized?
+### Beyond the founder pain
 
-Calendars and todos excel at **intentional** tracking. Farzana excels at the **unscheduled half** — spoken commitments, corridor context, ideas in motion — then hands you an editable board (the vault) without agent side effects.
+The same gap hits anyone whose life is partly **spoken and unfinished** — calls, corridors, half-promises — even if they already use calendars and notes. Farzana holds that thread in a vault you own, without agent side effects. It sits beside other systems; it does not replace them.
 
-| Door | Message |
-|------|---------|
-| ADHD / high load | External working memory when yours drops |
-| Already organized | Teammate who was in the room; doesn’t replace your system |
-
-Public narrative: root **README** (motivation first, then organized user, then Jamshed myth).
+Public narrative: root **README** (motivation → broader use → Jamshed myth).
 
 **Product name:** Farzana — [INSPIRATION.md](./INSPIRATION.md).
 
