@@ -12,6 +12,18 @@ She captures text and voice, stores **transparent memory you own**, discusses op
 
 ---
 
+## Inspiration
+
+The name **Farzana** is inspired by careful listening — including **Farzana** from the **Inspector Jamshed** world of Urdu detective fiction: present, sharp, and remembered for *hearing* what matters, not for spectacle.
+
+This project is an **independent open-source product**. It is **not** affiliated with or endorsed by the Inspector Jamshed franchise or its rights holders. We borrow a *quality of attention*, not characters, plots, or official branding.
+
+Tone also draws on a **Jarvis-like aide** (competence and discretion) and **ADHD-hard** design (external memory, resurfacing, anti-nag controls).
+
+**Full story:** [docs/STORY.md](docs/STORY.md#inspiration-why-farzana) · [docs/MOTIVATION.md](docs/MOTIVATION.md)
+
+---
+
 ## Why
 
 People forget what was said. Notifications are cold. Agent tools are powerful and risky.

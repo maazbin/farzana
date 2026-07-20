@@ -4,6 +4,20 @@
 
 ---
 
+## Inspiration (name & character)
+
+Farzana is named for **careful listening** — including inspiration from **Farzana** in the **Inspector Jamshed** literary universe: not the character who always shouts the answer, but the one who **hears** what was said and keeps the thread.
+
+That inspiration is **emotional and functional**, not a franchise license:
+
+- **Emotional:** memory should feel like a trusted aide who was actually *in the room*, not a spreadsheet.  
+- **Functional:** listen → hold → return at the right moment.  
+- **Boundary:** support the user’s life the way a good aide supports the case — without becoming the hero, the partner, or the agent who acts without permission.
+
+Full name write-up: [STORY.md § Inspiration](./STORY.md#inspiration-why-farzana).
+
+---
+
 ## Why this product
 
 ### Human why

@@ -8,6 +8,8 @@ Personal / multi-user **read-only Markdown memory aide** (Telegram).
 Listens carefully, stores transparent memory, discusses, resurfaces open loops, optional voice.  
 **Not** an action agent (OpenClaw/Hermes). **Not** a romantic companion bot.
 
+**Name inspiration:** careful listening — including Farzana from the Inspector Jamshed literary world (attention and holding the thread). Independent project; **not** franchise IP. See `docs/STORY.md` § Inspiration.
+
 Canonical product docs: `docs/STORY.md`, `docs/MOTIVATION.md`, `docs/RULES.md`, `docs/ARCHITECTURE.md`, `docs/STACK.md`.
 
 ## Hard constraints (do not violate)

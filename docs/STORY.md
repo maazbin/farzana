@@ -13,11 +13,39 @@
 
 ---
 
-## Name
+## Inspiration (why “Farzana”)
 
-**Farzana** — inspired by careful listening (including the Farzana of the Inspector Jamshed literary world: present, sharp, *hears* what matters).  
-Product role: careful listener · memory keeper · discreet resurfacer.  
-Not a romantic partner bot; competence over intimacy (Jarvis-like boundaries).
+### Literary & cultural spark
+
+The name is inspired by **Farzana** in the **Inspector Jamshed** world of Urdu detective/adventure fiction (Ishtiaq Ahmed’s series and later adaptations). In that universe, Inspector Jamshed works with his children — including **Farzana** — who is remembered not as the loudest hero, but as someone **present, sharp, and able to listen carefully**: she notices what was said, holds the thread, and helps the case move forward through attention rather than spectacle.
+
+That trait maps directly to the product:
+
+| Inspiration (Farzana the character) | Product (Farzana the aide) |
+|-------------------------------------|----------------------------|
+| Listens carefully | Voice + text capture without needing a “productivity app” ritual |
+| Holds the thread of what mattered | Named sessions, promises, Markdown memory you can open |
+| Supports the mission without stealing the spotlight | Jarvis-like boundaries: competence, not romance or dependency |
+| Helps when the puzzle resurfaces | Proactive briefs and open-loop reminders |
+
+The word **Farzana** also carries associations of **wisdom / intelligence** in Persian and Urdu usage — fitting for an aide whose job is clarity, not chatter.
+
+### What we are *not* claiming
+
+- **Not** an official Inspector Jamshed product, game, or licensed adaptation.  
+- **Not** a recreation of plot, characters, or franchise IP.  
+- **Inspiration only:** the *quality of careful listening* and a name that already means something in our culture.
+
+### Other design inspirations (tone & safety)
+
+| Source | What we take | What we refuse |
+|--------|----------------|----------------|
+| **Jarvis** (aide archetype) | Respect, brevity, competence, discretion | Superhero gadget hands / “I’ll just do it” |
+| **ADHD-hard design** | External working memory, kind resurfacing, anti-nag controls | Medical claims or “treats ADHD” |
+| **Anti-agent stance** | Memory + discussion only | OpenClaw/Hermes-style tool execution |
+| **Anti-companion stance** | Loyalty through attention | Romantic / therapist bot framing |
+
+**Product role in one line:** careful listener · memory keeper · discreet resurfacer.
 
 ---
 
