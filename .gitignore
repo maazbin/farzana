@@ -1,0 +1,73 @@
+# --- Secrets & local env (NEVER commit) ---
+.env
+.env.*
+!.env.example
+deploy/server.env
+deploy/infra.env
+deploy/keys/
+deploy/*.pem
+deploy/farzana-dev.pem
+deploy/farzana-app.tgz
+**/*.pem
+**/id_rsa
+**/id_ed25519
+
+# Terraform local / state (if using local backend)
+deploy/terraform/.terraform/
+deploy/terraform/*.tfstate
+deploy/terraform/*.tfstate.*
+deploy/terraform/terraform.tfvars
+deploy/terraform/crash.log
+# keep lock file optional; we commit .terraform.lock.hcl when present
+
+# --- Python ---
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# --- Runtime data ---
+vault/users/
+vault/inbox/
+vault/sessions/
+vault/promises/
+vault/proactive/
+vault/patterns/
+vault/daily/
+vault/ideas/
+vault/people/
+vault/graphs/
+vault/registry/
+vault/tmp/
+!vault/config/.gitkeep
+!vault/**/.gitkeep
+
+# --- Editor / OS ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# --- Logs / process ---
+logs/
+*.log
+.pm2/
+ngrok.yml
+
+# --- Design chat dumps (local only; story lives in docs/) ---
+SESSION_*.md
+FINAL_STACK.md

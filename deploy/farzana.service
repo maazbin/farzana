@@ -1,0 +1,18 @@
+[Unit]
+Description=Farzana API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/farzana
+Environment=PATH=/root/.local/bin:/usr/local/bin:/usr/bin
+EnvironmentFile=/opt/farzana/.env
+# --no-webhook: setWebhook is run once by deploy script after DNS/TLS
+ExecStart=/root/.local/bin/uv run farzana --no-webhook --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

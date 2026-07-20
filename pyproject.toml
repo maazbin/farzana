@@ -1,0 +1,32 @@
+[project]
+name = "farzana"
+version = "0.1.0"
+description = "Farzana — the aide who listens carefully. Read-only Markdown memory aide."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.32.0",
+  "celery[redis]>=5.4.0",
+  "redis>=5.0.0",
+  "openai>=1.55.0",
+  "httpx>=0.27.0",
+  "pydantic>=2.9.0",
+  "pydantic-settings>=2.6.0",
+  "python-dotenv>=1.0.0",
+  "python-multipart>=0.0.12",
+  "apscheduler>=3.10.0",
+]
+
+[project.scripts]
+farzana = "farzana.cli:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.uv]
+package = true
