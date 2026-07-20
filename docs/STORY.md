@@ -61,36 +61,33 @@ Farzana is the teammate who **caught the thread** — files it, and brings open 
 
 ---
 
-## Origin pain (founder story — ADHD from the start)
+## Origin pain (founder motivation → who else)
 
-**ADHD is not a footnote. It is why Farzana exists.**
+### Motivation (ADHD + leadership)
 
-The founder has ADHD and must still lead. The product began as a personal emergency of memory — not a market exercise. The earliest brief, almost word for word:
+The founder has ADHD and must still lead. The product began as a personal emergency of memory. The earliest brief, almost word for word:
 
 - *I have some idea or some work or someone tells me something and I can’t note it — or even if I do, I forget.*  
 - *I have task notifications, but I want something which cares about me, reminds me, records when I need to note, accepts text, asks when unclear.*  
-- *An emotional assistant more than a notification — talks at day end and during the day, discusses my schedule, keeps reminding me, tries to adapt my pattern of life.*  
-- *First version on mobile, talk using messaging; later the same mind on PC.*  
-- *It does not do work. Sole purpose: read, remind, encourage, discuss. Not OpenClaw. Not Hermes.*
+- *Talks at day end and during the day, discusses schedule, adapts patterns.*  
+- *Mobile messaging first; later PC. Does not do work. Not OpenClaw / Hermes.*
 
-The dramatic public version of this story lives at the top of the root **README** — sell the hard case first.
+That stress-test forced: frictionless capture, visible Markdown, resurfacing, voice options, read-only architecture, quiet controls.
 
-### Why we “sell ADHD” as the design bar
+We do **not** claim to diagnose or treat ADHD.
 
-| ADHD reality under load | Product rule it forced |
-|-------------------------|-------------------------|
-| Working memory drops mid-talk | Capture in seconds (Telegram text/voice) |
-| Even written notes vanish | Resurface — don’t only store |
-| Cold notifications train ignore | Discussion + optional voice, not badges only |
-| Shame after forgetting | Competence and loyalty, not scolding |
-| Impulsivity + powerful agents | **Read-only by architecture** — no external tools |
-| Patterns of life are real | Log response/ignore; evolve timing over time |
+### Transition: already organized?
 
-**Positioning:** ADHD-hard is the highest bar. Pass it, and lone leaders, overloaded ICs, and anyone alone with open loops get a product that was not designed for the fantasy organized user.
+Calendars and todos excel at **intentional** tracking. Farzana excels at the **unscheduled half** — spoken commitments, corridor context, ideas in motion — then hands you an editable board (the vault) without agent side effects.
 
-We do **not** claim to diagnose or treat ADHD. We claim infrastructure for a leaky mind under load.
+| Door | Message |
+|------|---------|
+| ADHD / high load | External working memory when yours drops |
+| Already organized | Teammate who was in the room; doesn’t replace your system |
 
-**Product name:** Farzana — see [INSPIRATION.md](./INSPIRATION.md) for Inspector Jamshed.
+Public narrative: root **README** (motivation first, then organized user, then Jamshed myth).
+
+**Product name:** Farzana — [INSPIRATION.md](./INSPIRATION.md).
 
 ---
 

@@ -22,33 +22,30 @@ That inspiration is **emotional and functional**, not a franchise license:
 
 ## Why this product
 
-### Human why (ADHD from day one — we lead with this)
+### Human why (motivation → broader need)
 
-**Farzana was founded because of ADHD**, not rebranded toward it later.
-
-The founder has ADHD and must still **lead**. The original cry was simple and brutal:
+**Motivation (founder):** ADHD under leadership load. The original cry:
 
 > Someone tells me something — I can’t note it. Even if I note it, I forget. Notifications don’t care. I want something that *cares*, reminds, discusses my day, adapts to my patterns — and **does not do the work for me**.
 
-That is not a feature list. That is a life under load.  
-The root **README** tells this story first, dramatically, on purpose: we sell the hard case so soft cases get a product that actually works.
+That founding story shaped frictionless capture, visible memory, resurfacing, and read-only safety. It is **motivation and stress-test**, not a claim to diagnose or treat ADHD. The root **README** opens with this honestly, then turns to everyone else.
 
-People (with or without an ADHD diagnosis) **lose the moment**:
+**Transition — if you are already organized:**  
+Your calendar and todos cover what you *chose* to track. Farzana covers the **unscheduled half of life** — hallways, calls, spoken promises — with context, without agent risk. Organization and Farzana stack; they don’t compete.
+
+People in general **lose the moment**:
 
 - They cannot open a notes app mid-conversation.  
 - They write something and never reopen it.  
 - Notifications train **ignore**, not action.  
-- Shame after forgetting makes colder systems worse.  
-- Agent tools tempt impulsive “just fix it” moves that can wreck trust.
+- Agent tools tempt impulsive “just fix it” moves.
 
 They need **external working memory** that:
 
 1. Is easy to feed (Telegram text/voice).  
 2. Is **visible and editable** (Markdown).  
 3. **Initiates** follow-up with context and tone.  
-4. Does **not** take dangerous actions when the user is overloaded or impulsive.  
-
-**ADHD was the design stress-test.** Lone leaders, overloaded ICs, and anyone alone with too many open loops ride the same rails — without medical claims.
+4. Does **not** take dangerous external actions.
 
 ### Product why (gap)
 
