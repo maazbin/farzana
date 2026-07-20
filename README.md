@@ -26,22 +26,41 @@ The failure mode was simple and repeated:
 
 That founding pain shaped the product: capture has to be frictionless, memory has to be visible, resurfacing has to be human, and agents that “just act” are too dangerous when attention and impulse are uneven.
 
-ADHD was the **motivation** and the **design stress-test** — not a medical claim, and not the only reason the tool should exist.
+ADHD was the **motivation** — why I started. It is not a diagnosis product, and you do not need ADHD to benefit.
 
 ---
 
-## Beyond that — who else this is for
+## Most assistants assume you’re already organized
 
-The same gap shows up whenever life is **spoken and unfinished**:
+Look at the landscape: calendars, todo suites, “second brains,” and agent tools usually work best when you already:
 
-- A promise in a call you couldn’t pause to type  
-- Context that never made it into the task title  
-- Notes scattered across apps you never reopen  
-- Wanting a mirror of open loops without handing control to an agent  
+- open the app on purpose  
+- maintain the system  
+- trust yourself to follow through  
+- can ignore noise and still find the signal  
 
-Farzana is for **holding the thread** — capture in the moment (text or voice), store in Markdown you own, discuss and resurface later, stay **read-only**.
+They reward people who are **already up**. If you’re there, many tools are fine.
 
-It sits beside whatever system you already use. It does not replace your calendar. It catches what the calendar never heard.
+**Farzana was built from the opposite direction.**
+
+ADHD forced a different pattern: capture must work when you *can’t* pause, memory must be visible when you don’t trust your head, reminders must *care* (context + discussion, not only badges), and the system must not take dangerous actions when impulse is high.
+
+That pattern does not only serve ADHD. It can help a **low-capacity day** become a higher-capacity life — for anyone who:
+
+- loses spoken promises  
+- abandons note apps after a week  
+- feels behind, not “optimized”  
+- wants support without an agent that acts for them  
+
+You don’t need ADHD for that. ADHD was just the **reason the bar was set high**.  
+Pass a hard bar, and people starting lower get a ladder — not another tool that assumes they already climbed.
+
+```text
+Most tools:  built for people who already run a system
+Farzana:     built so you can hold a thread even when the system fails
+Motivation:  ADHD under load
+Audience:    anyone who needs the thread held
+```
 
 ---
 
@@ -136,5 +155,5 @@ Never commit `.env`, `*.pem`, or API tokens. Rotate anything that leaked.
 
 ---
 
-*Started for a mind that drops threads under load.*  
-*Useful whenever life is spoken faster than it gets written down.*
+*Started from ADHD under load — that was the motivation.*  
+*Built so anyone who needs a thread held can climb, even without ADHD.*

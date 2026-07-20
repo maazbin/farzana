@@ -78,9 +78,9 @@ We do **not** claim to diagnose or treat ADHD.
 
 ### Beyond the founder pain
 
-The same gap hits anyone whose life is partly **spoken and unfinished** — calls, corridors, half-promises — even if they already use calendars and notes. Farzana holds that thread in a vault you own, without agent side effects. It sits beside other systems; it does not replace them.
+Most assistants and productivity tools assume you are **already organized**. Farzana’s ADHD-born pattern — frictionless capture, visible memory, human resurfacing, no agent hands — can help someone starting from a **low-capacity** place climb, **with or without ADHD**. ADHD is the motivation and the stress-test, not a required label.
 
-Public narrative: root **README** (motivation → broader use → Jamshed myth).
+Public narrative: root **README**.
 
 **Product name:** Farzana — [INSPIRATION.md](./INSPIRATION.md).
 

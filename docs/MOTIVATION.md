@@ -30,7 +30,7 @@ That inspiration is **emotional and functional**, not a franchise license:
 
 That founding story shaped frictionless capture, visible memory, resurfacing, and read-only safety. It is **motivation and stress-test**, not a claim to diagnose or treat ADHD. The root **README** opens with this honestly, then turns to everyone else.
 
-**Beyond that:** many people lose the **spoken, unfinished** half of life — even when they already use notes and calendars. Farzana holds that thread; it stacks with other tools rather than replacing them.
+**Beyond that:** most tools serve people who already run a system. Farzana’s hard-case design can lift someone who feels behind — ADHD or not — by holding spoken, unfinished threads without agent risk.
 
 People in general **lose the moment**:
 
