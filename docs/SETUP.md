@@ -67,6 +67,19 @@ uv run farzana --no-webhook
 
 API listens on **http://127.0.0.1:8000**
 
+### Natural language modes (no slash required)
+
+You can still use `/listen`, `/stop`, `/close` — or just say it:
+
+| You say (text or voice) | Farzana does |
+|-------------------------|--------------|
+| “start listening” / “record this meeting” | Enter listen mode |
+| long voice while listening | Save clip (short ack) |
+| “will you remind me…?” while listening | **Answer** + still save |
+| “stop listening” | Leave listen mode |
+| “close the session” | Close + extract promises |
+| “give me a brief” / “be quiet” | Brief / quiet mode |
+
 ### PC essentials (read-only)
 
 On the machine that has your calendar/mail exports:
