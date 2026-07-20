@@ -14,13 +14,21 @@ She captures text and voice, stores **transparent memory you own**, discusses op
 
 ## Inspiration
 
-The name **Farzana** is inspired by careful listening — including **Farzana** from the **Inspector Jamshed** world of Urdu detective fiction: present, sharp, and remembered for *hearing* what matters, not for spectacle.
+In **Ishtiaq Ahmed’s Inspector Jamshed** novels, the inspector works with his children — **Mehmood**, **Farooq**, and **Farzana**. In that shared cultural memory, Farzana is not the loudest hero: she is **present, sharp, and listens carefully**, holding the thread of the case while others rush into the noise.
 
-This project is an **independent open-source product**. It is **not** affiliated with or endorsed by the Inspector Jamshed franchise or its rights holders. We borrow a *quality of attention*, not characters, plots, or official branding.
+This open-source project takes that *spirit of careful listening* and rebuilds it for modern overload:
 
-Tone also draws on a **Jarvis-like aide** (competence and discretion) and **ADHD-hard** design (external memory, resurfacing, anti-nag controls).
+```text
+You live the day (inspector of your own life).
+Farzana listens, files, and returns open loops.
+You still decide. She never seizes the case.
+```
 
-**Full story:** [docs/STORY.md](docs/STORY.md#inspiration-why-farzana) · [docs/MOTIVATION.md](docs/MOTIVATION.md)
+**Independent project** — not affiliated with or endorsed by Inspector Jamshed rights holders. Inspiration of attention, not licensed franchise IP.
+
+Also: **Jarvis-like** aide tone · **ADHD-hard** capture and resurfacing · **anti-agent** safety (no tool hands).
+
+**Deep dive:** [docs/INSPIRATION.md](docs/INSPIRATION.md) · [docs/STORY.md](docs/STORY.md) · [docs/MOTIVATION.md](docs/MOTIVATION.md)
 
 ---
 

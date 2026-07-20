@@ -6,15 +6,17 @@
 
 ## Inspiration (name & character)
 
-Farzana is named for **careful listening** — including inspiration from **Farzana** in the **Inspector Jamshed** literary universe: not the character who always shouts the answer, but the one who **hears** what was said and keeps the thread.
+Farzana is named for **careful listening**, rooted in the public memory of **Farzana** from **Inspector Jamshed** (Ishtiaq Ahmed’s Urdu detective/espionage novels — Jamshed with children **Mehmood**, **Farooq**, and **Farzana**).
+
+In that myth, cases are won by a **team of different strengths**. Farzana’s strength, as many readers remember it, is not spectacle: it is **attention** — hearing what was said, holding the thread, returning it when the puzzle turns.
 
 That inspiration is **emotional and functional**, not a franchise license:
 
-- **Emotional:** memory should feel like a trusted aide who was actually *in the room*, not a spreadsheet.  
-- **Functional:** listen → hold → return at the right moment.  
-- **Boundary:** support the user’s life the way a good aide supports the case — without becoming the hero, the partner, or the agent who acts without permission.
+- **Emotional:** memory should feel like a teammate who was actually *in the room*, not a cold list.  
+- **Functional:** listen → hold in files you own → return at the right moment.  
+- **Boundary:** support *your* mission the way she supports the family case — without becoming the hero, the partner, or the agent who acts without permission.
 
-Full name write-up: [STORY.md § Inspiration](./STORY.md#inspiration-why-farzana).
+**Long form:** [INSPIRATION.md](./INSPIRATION.md) · [STORY.md § Inspiration](./STORY.md#inspiration-why-farzana).
 
 ---
 

@@ -15,34 +15,46 @@
 
 ## Inspiration (why “Farzana”)
 
-### Literary & cultural spark
+> **Long form:** [INSPIRATION.md](./INSPIRATION.md) — Inspector Jamshed, the three children, and how listening became the product.
 
-The name is inspired by **Farzana** in the **Inspector Jamshed** world of Urdu detective/adventure fiction (Ishtiaq Ahmed’s series and later adaptations). In that universe, Inspector Jamshed works with his children — including **Farzana** — who is remembered not as the loudest hero, but as someone **present, sharp, and able to listen carefully**: she notices what was said, holds the thread, and helps the case move forward through attention rather than spectacle.
+### The Jamshed household, in brief
 
-That trait maps directly to the product:
+In Ishtiaq Ahmed’s **Inspector Jamshed** detective/espionage novels — a staple of Urdu popular fiction for generations — Jamshed does not work alone. Beside him stand his children **Mehmood**, **Farooq**, and **Farzana**, each remembered for different strengths. Around them, a wider circle (strategists, scientists, field officers) fills out a world where cases are won by **attention and teamwork**, not by a lone genius with gadgets.
 
-| Inspiration (Farzana the character) | Product (Farzana the aide) |
-|-------------------------------------|----------------------------|
-| Listens carefully | Voice + text capture without needing a “productivity app” ritual |
-| Holds the thread of what mattered | Named sessions, promises, Markdown memory you can open |
-| Supports the mission without stealing the spotlight | Jarvis-like boundaries: competence, not romance or dependency |
-| Helps when the puzzle resurfaces | Proactive briefs and open-loop reminders |
+In that public memory, **Farzana** is not cast as the loudest hero. She is the one who is **present**, **sharp**, and **listens carefully**: she notices what was said, holds the thread of the case, and helps the mission move when others rush past a detail.
 
-The word **Farzana** also carries associations of **wisdom / intelligence** in Persian and Urdu usage — fitting for an aide whose job is clarity, not chatter.
+### From myth to product
+
+| Farzana in the Jamshed myth (as we remember her) | Farzana the software |
+|--------------------------------------------------|----------------------|
+| Listens carefully in a noisy case | Captures Telegram text **and voice** without ceremony |
+| Holds the thread of what mattered | Named sessions, promises, **Markdown you can open** |
+| Supports the family mission without seizing the badge | **Read-only** aide — you still decide and act |
+| Returns when the puzzle resurfaces | Briefs, promise scans, optional **voice** reminders |
+| Loyalty as duty, not romance | Jarvis-like boundaries; no companion-bot intimacy |
+
+The word **Farzana** also leans toward **wisdom / intelligence** in Persian and Urdu usage — a second layer under the character memory.
+
+### The product parable
+
+You are the inspector of your own day: too many conversations, half-promises, ideas that vanish.  
+Farzana is the teammate who **caught the thread** — files it, and brings open loops back — without ever taking the case from you.
 
 ### What we are *not* claiming
 
-- **Not** an official Inspector Jamshed product, game, or licensed adaptation.  
-- **Not** a recreation of plot, characters, or franchise IP.  
-- **Inspiration only:** the *quality of careful listening* and a name that already means something in our culture.
+- **Not** an official Inspector Jamshed product, adaptation, or licensed work.  
+- **Not** a retelling of copyrighted plots or character Bibles.  
+- **Inspiration only:** cultural memory of careful listening in a beloved detective household.  
+- Full legal note: [INSPIRATION.md § Disclaimer](./INSPIRATION.md#disclaimer).
 
 ### Other design inspirations (tone & safety)
 
 | Source | What we take | What we refuse |
 |--------|----------------|----------------|
-| **Jarvis** (aide archetype) | Respect, brevity, competence, discretion | Superhero gadget hands / “I’ll just do it” |
-| **ADHD-hard design** | External working memory, kind resurfacing, anti-nag controls | Medical claims or “treats ADHD” |
-| **Anti-agent stance** | Memory + discussion only | OpenClaw/Hermes-style tool execution |
+| **Inspector Jamshed / Farzana** | Name, listening myth, team-of-strengths | Franchise IP, fanfic as product |
+| **Jarvis** (aide archetype) | Respect, brevity, competence, discretion | Superhero “I’ll just do it” hands |
+| **ADHD-hard design** | External working memory, kind resurfacing | Medical claims |
+| **Anti-agent stance** | Memory + discussion only | OpenClaw/Hermes tool execution |
 | **Anti-companion stance** | Loyalty through attention | Romantic / therapist bot framing |
 
 **Product role in one line:** careful listener · memory keeper · discreet resurfacer.

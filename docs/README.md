@@ -3,7 +3,8 @@
 | Doc | Purpose |
 |-----|---------|
 | [SETUP.md](./SETUP.md) | Local + webhook setup |
-| [STORY.md](./STORY.md) | Product story, **name inspiration** (Inspector Jamshed / Farzana), phases |
+| [INSPIRATION.md](./INSPIRATION.md) | **Deep story:** Inspector Jamshed, Farzana, Mehmood, Farooq, myth → product |
+| [STORY.md](./STORY.md) | Product story, name, phases |
 | [MOTIVATION.md](./MOTIVATION.md) | Why / when / when not |
 | [RULES.md](./RULES.md) | Product + engineering hard rules |
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | System design |
