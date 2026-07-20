@@ -1,7 +1,7 @@
 variable "aws_profile" {
   description = "AWS CLI profile name"
   type        = string
-  default     = "dev"
+  default     = "default"
 }
 
 variable "aws_region" {
@@ -32,13 +32,13 @@ variable "volume_size_gb" {
 }
 
 variable "domain" {
-  description = "Public hostname for PUBLIC_BASE_URL and Caddy TLS"
+  description = "Public hostname for PUBLIC_BASE_URL and Caddy TLS (your domain)"
   type        = string
-  default     = "farzana.jambits.io"
+  default     = "farzana.example.com"
 }
 
 variable "ssh_cidr" {
-  description = "Who may SSH (tighten in prod)"
+  description = "Who may SSH (tighten in production)"
   type        = string
   default     = "0.0.0.0/0"
 }
@@ -50,7 +50,7 @@ variable "create_dns" {
 }
 
 variable "hosted_zone_id" {
-  description = "Route53 zone id for jambits.io (only if create_dns)"
+  description = "Route53 hosted zone id (only if create_dns)"
   type        = string
   default     = ""
 }

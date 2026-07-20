@@ -1,102 +1,156 @@
-# Farzana — simple setup
+# Farzana — setup (any machine)
 
-The app **does not know about ngrok**. It only reads **`PUBLIC_BASE_URL`** from `.env`  
-(your public HTTPS base that reaches this machine on port 8000).  
-Locally you often fill that with an ngrok URL; in prod, your real domain.
-
----
-
-## Once
-
-```powershell
-cd C:\Users\ABC\Desktop\d\myDay
-uv sync
-notepad .env
-```
-
-| Variable | Meaning |
-|----------|---------|
-| `TELEGRAM_BOT_TOKEN` | From @BotFather |
-| `TELEGRAM_ALLOWLIST_USER_IDS` | Your id from @userinfobot |
-| `TELEGRAM_WEBHOOK_SECRET` | Random string you invent |
-| `OPENAI_API_KEY` | OpenAI key |
-| `PUBLIC_BASE_URL` | Public https base **no path** (see below) |
-| `CELERY_TASK_ALWAYS_EAGER` | `true` for easy local |
-| `HTTPS_PROXY` | Optional if Telegram API is blocked |
-
-### `PUBLIC_BASE_URL` examples
+Anyone can run Farzana on a laptop or server.  
+There is **no fixed domain, IP, or cloud account**. Your case may differ; the only contract is:
 
 ```env
-# local tunnel (you run the tunnel yourself)
-PUBLIC_BASE_URL=https://abc123.ngrok-free.app
-
-# production later
-PUBLIC_BASE_URL=https://farzana.yourdomain.com
+PUBLIC_BASE_URL=https://whatever-public-https-origin-reaches-your-app
 ```
 
 ---
 
-## Every day
+## 1. Clone and install
 
-**1. Expose port 8000** (your choice — ngrok, cloudflare tunnel, reverse proxy, etc.)
+```bash
+git clone https://github.com/maazbin/farzana.git
+cd farzana
+cp .env.example .env
+uv sync
+```
 
-```powershell
+---
+
+## 2. Telegram (single user recommended)
+
+### Create the bot
+
+1. Telegram → **@BotFather** → `/newbot`  
+2. Copy the token → `TELEGRAM_BOT_TOKEN` in `.env`
+
+### Lock to **only you** (single user)
+
+1. **@userinfobot** → copy your numeric **Id**  
+2. In `.env`:
+
+```env
+TELEGRAM_ALLOW_ALL_USERS=false
+TELEGRAM_ALLOWLIST_USER_IDS=123456789
+TELEGRAM_WEBHOOK_SECRET=long-random-string-you-invent
+OPENAI_API_KEY=sk-...
+```
+
+| Setting | Meaning |
+|---------|---------|
+| `TELEGRAM_ALLOW_ALL_USERS=false` | Only listed ids |
+| `TELEGRAM_ALLOWLIST_USER_IDS` | Your Telegram user id (not the bot’s) |
+
+For a public demo only, set `TELEGRAM_ALLOW_ALL_USERS=true` (not recommended for personal memory).
+
+### OpenAI
+
+https://platform.openai.com/api-keys → `OPENAI_API_KEY`
+
+Check:
+
+```bash
+uv run farzana health
+```
+
+---
+
+## 3. Run the API (always)
+
+```bash
+uv run farzana --no-webhook
+```
+
+API listens on **http://127.0.0.1:8000**  
+Health: http://127.0.0.1:8000/health
+
+---
+
+## 4. Public HTTPS (required for Telegram webhooks)
+
+Telegram must **POST** updates to a **public https** URL.  
+`localhost` alone is not enough.
+
+### Option A — ngrok (optional, great for local dev)
+
+1. Install [ngrok](https://ngrok.com/download) and auth once:  
+   `ngrok config add-authtoken YOUR_TOKEN`
+2. In another terminal:
+
+```bash
 ngrok http 8000
 ```
 
-Put the https origin into `.env` as `PUBLIC_BASE_URL` (if it changed).
-
-**2. One command — webhook + server**
-
-```powershell
-uv run farzana
-```
-
-That:
-
-1. Reads `PUBLIC_BASE_URL` from `.env`  
-2. Tells Telegram: send updates to `{PUBLIC_BASE_URL}/telegram/{SECRET}`  
-3. Starts FastAPI on **:8000**
-
-**3.** Message the bot on Telegram.
-
----
-
-## If Telegram API times out
-
-Your PC cannot open `api.telegram.org` (block/firewall). Then:
-
-1. Turn on **VPN**, or set in `.env`:
+3. Copy the `https://….ngrok-free.app` origin into `.env`:
 
 ```env
-HTTPS_PROXY=http://127.0.0.1:7890
+PUBLIC_BASE_URL=https://YOUR-SUBDOMAIN.ngrok-free.app
 ```
 
-2. Test: `curl https://api.telegram.org`  
-3. `uv run farzana` again  
+(no path, no trailing slash)
 
-Or start API only while you fix network:
+4. Register webhook (API can stay running with `--no-webhook`, or restart):
 
-```powershell
-uv run farzana --no-webhook
-# later, with VPN:
+```bash
 uv run farzana webhook
 ```
 
-Force start even if webhook fails:
+5. Free ngrok URLs **change** when you restart ngrok → update `PUBLIC_BASE_URL` and run `webhook` again.
 
-```powershell
-uv run farzana --force
+Other tunnels (Cloudflare Tunnel, localtunnel, etc.) work the same way: any public HTTPS origin is fine.
+
+### Option B — your domain + VPS
+
+1. Deploy the app on a server (systemd templates under `deploy/`).  
+2. TLS with Caddy/nginx (`deploy/Caddyfile` is a template — replace the hostname).  
+3. DNS **A/AAAA** for your domain → server IP.  
+4. `PUBLIC_BASE_URL=https://your.domain`  
+5. `uv run farzana webhook`  
+
+---
+
+## 5. One command (webhook + server)
+
+If `PUBLIC_BASE_URL` is already set in `.env`:
+
+```bash
+uv run farzana
+```
+
+This registers the Telegram webhook from env, then starts `:8000`.  
+It does **not** start ngrok or any cloud for you.
+
+```bash
+uv run farzana --force        # start API even if webhook fails
+uv run farzana --no-webhook   # API only
 ```
 
 ---
 
-## Commands
+## 6. Use the bot
 
-| Command | Does |
-|---------|------|
-| `uv run farzana` | Webhook from `.env` + API :8000 |
-| `uv run farzana --reload` | Same + reload |
-| `uv run farzana --no-webhook` | API only |
-| `uv run farzana webhook` | Webhook only |
-| `uv run farzana health` | Print config |
+1. Open your bot in Telegram (same account as the allowlist id).  
+2. `/start`  
+3. Text or **voice note**  
+4. `Note this: …` · `/close` · `/brief` · `/quiet`  
+
+---
+
+## Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| Bot silent | Webhook URL must be https; re-run `farzana webhook` after tunnel URL changes |
+| Not authorized | Single-user: your id must match `TELEGRAM_ALLOWLIST_USER_IDS` |
+| ConnectTimeout to api.telegram.org | Network blocks Telegram API — VPN/proxy on the **machine running Farzana** |
+| OpenAI errors | Key / billing |
+
+---
+
+## Optional: cloud / Terraform
+
+Not required. See [deploy/README.md](../deploy/README.md) if you want a VM scaffold.  
+Defaults use **example.com** placeholders only — never a private deployment hostname.

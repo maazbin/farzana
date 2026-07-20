@@ -4,6 +4,7 @@
 !.env.example
 deploy/server.env
 deploy/infra.env
+deploy/infra.env.*
 deploy/keys/
 deploy/*.pem
 deploy/farzana-dev.pem
@@ -11,6 +12,9 @@ deploy/farzana-app.tgz
 **/*.pem
 **/id_rsa
 **/id_ed25519
+# personal host overrides
+.env.local
+.env.production
 
 # Terraform local / state (if using local backend)
 deploy/terraform/.terraform/

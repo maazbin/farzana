@@ -1,78 +1,82 @@
-# Farzana AWS dev (profile `dev`)
+# Deploy (optional)
 
-## Infrastructure: use Terraform
+Farzana is designed to run **on any machine you control**: laptop, VPS, or cloud VM.  
+There is **no required vendor, domain, or IP**. Set `PUBLIC_BASE_URL` to whatever public HTTPS origin reaches your process on port 8000.
 
-New/changed AWS resources should go through:
-
-```text
-deploy/terraform/
+```env
+PUBLIC_BASE_URL=https://your-public-origin.example
 ```
 
-See **[terraform/README.md](./terraform/README.md)**.  
-Manual `aws ec2 …` clicks/scripts are legacy for the first box only.
+The app does **not** know about ngrok, Cloudflare, AWS, or any brand domain. Those are *your* choices for exposing the port.
 
 ---
 
-## Live resources (current hand-built dev box)
+## Path A — Local machine (most people)
 
-| Item | Value |
-|------|--------|
-| AWS profile | `dev` |
-| Region | `us-east-1` |
-| Instance | see `infra.env` (`farzana-dev`, **t3.micro**) |
-| Elastic IP | **54.208.17.19** |
-| Security group | `farzana-dev-sg` (22, 80, 443) |
-| SSH key | `deploy/keys/farzana-dev.pem` (**do not commit**) |
-| App path | `/opt/farzana` |
-| Domain | `https://farzana.jambits.io` |
-| `PUBLIC_BASE_URL` | `https://farzana.jambits.io` |
+See **[docs/SETUP.md](../docs/SETUP.md)** for the full guide.
 
-Farzana API + Caddy are **running** on the instance. Health on the box:
+Short version:
+
+1. `uv sync` + `.env` with Telegram + OpenAI keys  
+2. `uv run farzana --no-webhook` (API on `:8000`)  
+3. Optionally expose `:8000` with **ngrok** (or any tunnel) and set `PUBLIC_BASE_URL`  
+4. `uv run farzana webhook`  
+
+---
+
+## Path B — Linux VPS / any cloud VM (generic)
+
+1. Install Python/`uv`, put the repo in e.g. `/opt/farzana`  
+2. Copy `.env.example` → `.env` (secrets stay on the server)  
+3. `PUBLIC_BASE_URL=https://your.domain`  
+4. Run API (systemd example: `deploy/farzana.service`) on `127.0.0.1:8000`  
+5. Terminate TLS with Caddy/nginx (`deploy/Caddyfile` as a template)  
+6. Point DNS A/AAAA for your domain at the VM  
+7. `uv run farzana webhook`  
+
+Example unit files in this folder are **templates** — edit paths/user for your host.
+
+---
+
+## Path C — Terraform (optional AWS scaffold)
+
+`deploy/terraform/` creates a small EC2-style box (SG, key, EIP) if you want AWS.  
+Defaults use placeholders (`your-domain.example.com`). Override in `terraform.tfvars` (gitignored).
 
 ```bash
-curl http://127.0.0.1:8000/health
+cd deploy/terraform
+cp terraform.tfvars.example terraform.tfvars
+# edit domain, profile, region
+terraform init && terraform apply
 ```
 
-## What you must do: DNS (blocking)
+See [terraform/README.md](./terraform/README.md).
 
-Right now `farzana.jambits.io` resolves to **Cloudflare proxy IPs** (e.g. `104.21…`), not the EC2 Elastic IP. Caddy/Let's Encrypt and Telegram webhook need the name to reach **54.208.17.19**.
+**Do not commit:** `terraform.tfvars`, state files, `*.pem`, `server.env`, `infra.env`.
 
-### Recommended (Cloudflare DNS only)
+---
 
-| Type | Name | Content | Proxy status |
-|------|------|---------|----------------|
-| **A** | `farzana` | **`54.208.17.19`** | **DNS only (grey cloud)** |
+## Scripts in this folder
 
-Check:
+| File | Purpose |
+|------|---------|
+| `farzana.service` | systemd template for the API |
+| `caddy.service` / `Caddyfile` | TLS reverse-proxy templates |
+| `user-data.sh` | optional cloud-init bootstrap sketch |
+| `redeploy.ps1` | optional helper — **set your own host/key env vars** |
+| `finish-after-dns.ps1` | optional helper after DNS points at your host |
+
+These scripts used to embed a private deployment; they now read:
 
 ```powershell
-nslookup farzana.jambits.io
-# must show 54.208.17.19 — not 104.21.x / 172.67.x
+$env:FARZANA_HOST   # e.g. 203.0.113.10 or your hostname
+$env:FARZANA_SSH_KEY  # path to your private key
+$env:FARZANA_DOMAIN   # e.g. farzana.example.com
 ```
 
-Then:
+---
 
-```powershell
-cd C:\Users\ABC\Desktop\d\myDay
-.\deploy\finish-after-dns.ps1
-```
+## Security
 
-That issues TLS and runs `farzana webhook` on the server.
-
-Then message the bot (phone VPN if Telegram is blocked in PK).
-
-## Why EC2 (not local)
-
-Telegram API is blocked from many Pakistan networks. The **server in us-east-1** can call `api.telegram.org`. Your phone only needs Telegram app access (VPN if needed).
-
-## SSH
-
-```powershell
-ssh -i deploy\keys\farzana-dev.pem ec2-user@54.208.17.19
-```
-
-## Redeploy code later
-
-```powershell
-.\deploy\redeploy.ps1
-```
+Never put production tokens, SSH keys, or real IPs in git.  
+Rotate any key that was ever pasted into chat or committed by mistake.

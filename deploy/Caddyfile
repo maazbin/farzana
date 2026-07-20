@@ -1,4 +1,5 @@
-farzana.jambits.io {
+# Replace with your domain (must match PUBLIC_BASE_URL host)
+your-domain.example.com {
 	encode gzip
 	reverse_proxy 127.0.0.1:8000
 }
