@@ -97,7 +97,7 @@ Independent open source — **not** affiliated with the franchise. Full write-up
 | Telegram text / voice in / TTS out | Yes |
 | Per-user vault, sessions, `/close` extract | Yes |
 | Proactive briefs / promise scan | Yes (UTC; timezones on roadmap) |
-| Single-user allowlist or open mode | Yes |
+| Single-user only (`TELEGRAM_USER_ID`) | Yes |
 | External actions | **Never** |
 
 **Memory model:** files are truth; the model only gets a temporary view. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
@@ -129,7 +129,7 @@ Never commit `.env`, `*.pem`, or API tokens. Rotate anything that leaked.
 ## Using the bot
 
 1. Public `PUBLIC_BASE_URL` + `uv run farzana` (or webhook after tunnel).  
-2. `/start` from your allowlisted account if single-user.  
+2. `/start` from the Telegram account in `TELEGRAM_USER_ID`.  
 3. Text or voice note.  
 4. `Note this: …` → `/close`.  
 5. `/brief` · `/quiet` · `/voice on|off`.

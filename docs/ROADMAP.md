@@ -5,9 +5,9 @@ Tracked in GitHub Issues. This file is a summary.
 ## Done (baseline)
 
 - [x] Telegram webhook + FastAPI  
-- [x] Markdown vault (per-user)  
+- [x] Markdown vault (single-user)  
 - [x] Text dialogue (Farzana tone)  
-- [x] Open multi-user mode  
+- [x] Single-user auth (`TELEGRAM_USER_ID`)  
 - [x] Voice in (Whisper) + voice out (TTS)  
 - [x] Session open/close + promise extract  
 - [x] Proactive morning/evening + promise scan  

@@ -1,4 +1,4 @@
-"""Dialogue engine — Farzana: careful listener, discuss, encourage (read-only)."""
+"""Dialogue engine — Farzana: careful listener (single-user vault)."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from openai import OpenAI
 from farzana.core.config import Settings
 from farzana.services import vault as vault_io
 
-SYSTEM = """You are Farzana — a personal, read-only memory aide.
+SYSTEM = """You are Farzana — a personal, read-only memory aide for one person.
 You listen carefully. You remember, remind, discuss, and encourage — never act on the outside world.
 
 Tone:
@@ -27,7 +27,6 @@ def reply_text(
     settings: Settings,
     user_text: str,
     *,
-    user_id: int | None = None,
     context_note: str = "",
     display_name: str | None = None,
 ) -> str:
@@ -39,9 +38,7 @@ def reply_text(
         )
 
     name = display_name or settings.user_display_name
-    memory = ""
-    if user_id is not None:
-        memory = vault_io.recent_context(settings.vault_path, user_id)
+    memory = vault_io.recent_context(settings.vault_path)
 
     client = OpenAI(api_key=settings.openai_api_key)
     system = SYSTEM.format(name=name)
@@ -51,13 +48,12 @@ def reply_text(
     if context_note:
         parts.append(f"[system note: {context_note}]")
     parts.append(user_text)
-    user_payload = "\n\n".join(parts)
 
     resp = client.chat.completions.create(
         model=settings.openai_chat_model,
         messages=[
             {"role": "system", "content": system},
-            {"role": "user", "content": user_payload},
+            {"role": "user", "content": "\n\n".join(parts)},
         ],
         temperature=0.4,
         max_tokens=500,
@@ -65,14 +61,13 @@ def reply_text(
     return (resp.choices[0].message.content or "").strip() or "Noted."
 
 
-def brief_text(settings: Settings, user_id: int, kind: str = "morning") -> str:
-    """Morning / evening discussion brief from vault."""
-    memory = vault_io.recent_context(settings.vault_path, user_id, limit_chars=4000)
-    promises = vault_io.list_open_promises(settings.vault_path, user_id)
+def brief_text(settings: Settings, kind: str = "morning") -> str:
+    memory = vault_io.recent_context(settings.vault_path, limit_chars=4000)
+    promises = vault_io.list_open_promises(settings.vault_path)
     plist = "\n".join(f"- {p.stem}" for p in promises[:8]) or "- (none)"
     if kind == "morning":
         prompt = (
-            "Write a short morning brief (5–8 sentences max) for the user: "
+            "Write a short morning brief (5–8 sentences max): "
             "what matters today from memory and open promises. Encouraging but not gushy."
         )
     else:
@@ -83,6 +78,5 @@ def brief_text(settings: Settings, user_id: int, kind: str = "morning") -> str:
     return reply_text(
         settings,
         f"{prompt}\n\nOpen promises:\n{plist}\n\nMemory:\n{memory}",
-        user_id=user_id,
         context_note=f"{kind} brief",
     )

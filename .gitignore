@@ -44,6 +44,8 @@ htmlcov/
 
 # --- Runtime data ---
 vault/users/
+vault/config/chat.json
+vault/config/profile.md
 vault/inbox/
 vault/sessions/
 vault/promises/

@@ -1,4 +1,4 @@
-"""Extract promises/ideas on session close."""
+"""Extract promises/ideas on session close (single-user vault)."""
 
 from __future__ import annotations
 
@@ -11,8 +11,7 @@ from farzana.core.config import Settings
 from farzana.services import vault as vault_io
 
 
-def extract_and_store(settings: Settings, user_id: int, session_text: str, session_title: str) -> str:
-    """Return human summary of what was extracted."""
+def extract_and_store(settings: Settings, session_text: str, session_title: str) -> str:
     if not settings.openai_api_key:
         return "Session closed (no OpenAI key for extract)."
 
@@ -37,7 +36,6 @@ Return ONLY valid JSON."""
         max_tokens=800,
     )
     raw = (resp.choices[0].message.content or "").strip()
-    # strip fences
     raw = re.sub(r"^```(?:json)?\s*", "", raw)
     raw = re.sub(r"\s*```$", "", raw)
     try:
@@ -49,15 +47,10 @@ Return ONLY valid JSON."""
     for p in data.get("promises") or []:
         title = p.get("title") or "promise"
         detail = p.get("detail") or title
-        path = vault_io.write_promise(settings.vault_path, user_id, title, detail)
+        path = vault_io.write_promise(settings.vault_path, title, detail)
         notes.append(f"promise: {path.name}")
     for idea in data.get("ideas") or []:
-        vault_io.append_inbox(
-            settings.vault_path,
-            user_id,
-            f"[idea] {idea}",
-            source="extract",
-        )
+        vault_io.append_inbox(settings.vault_path, f"[idea] {idea}", source="extract")
         notes.append(f"idea: {idea[:60]}")
     people = data.get("people") or []
     if people:

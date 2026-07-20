@@ -54,7 +54,7 @@ See [docs/RULES.md](docs/RULES.md) and [AGENTS.md](AGENTS.md).
 - [ ] No secrets  
 - [ ] Docs updated if user-facing or architectural  
 - [ ] Read-only product constraints respected  
-- [ ] Multi-user vault paths still per `user_id` when relevant  
+- [ ] Still single-user (`TELEGRAM_USER_ID`); no multi-tenant paths  
 
 ## Issues
 

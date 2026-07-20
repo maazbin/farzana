@@ -1,4 +1,4 @@
-"""Application settings loaded from environment / `.env`."""
+"""Application settings — single-user product."""
 
 from __future__ import annotations
 
@@ -23,9 +23,10 @@ class Settings(BaseSettings):
     user_display_name: str = "there"
 
     telegram_bot_token: str = ""
-    # Empty + allow_all_users=true → anyone can use the bot
+    # Single owner — only this Telegram user id may use the bot
+    telegram_user_id: int = 0
+    # Back-compat: if TELEGRAM_USER_ID unset, first id from allowlist-style env
     telegram_allowlist_user_ids: str = ""
-    telegram_allow_all_users: bool = True
     telegram_webhook_secret: str = "change-me"
 
     openai_api_key: str = ""
@@ -35,14 +36,12 @@ class Settings(BaseSettings):
     openai_stt_model: str = "whisper-1"
     openai_embedding_model: str = "text-embedding-3-small"
 
-    # Prefer voice replies when user sent voice, or always if true
     voice_replies: bool = True
     voice_replies_always: bool = False
 
     redis_url: str = "redis://127.0.0.1:6379/0"
     celery_task_always_eager: bool = True
 
-    # Proactive (in-process scheduler)
     proactive_enabled: bool = True
     proactive_max_per_day: int = 3
     morning_brief_hour_utc: int = 7
@@ -58,11 +57,15 @@ class Settings(BaseSettings):
         return Path(v)
 
     @property
-    def allowlist_ids(self) -> set[int]:
+    def owner_user_id(self) -> int:
+        """The one allowed Telegram user."""
+        if self.telegram_user_id:
+            return int(self.telegram_user_id)
         raw = self.telegram_allowlist_user_ids.strip()
         if not raw:
-            return set()
-        return {int(x.strip()) for x in raw.split(",") if x.strip()}
+            return 0
+        first = raw.split(",")[0].strip()
+        return int(first) if first else 0
 
     @property
     def webhook_path(self) -> str:

@@ -1,4 +1,4 @@
-"""Telegram webhook ingress — thin HTTP layer only."""
+"""Telegram webhook — single-user owner only."""
 
 from __future__ import annotations
 
@@ -37,18 +37,17 @@ async def telegram_webhook(
     chat_id = chat.get("id")
 
     if not is_allowed_user(user_id, settings):
-        log.warning("rejected user_id=%s", user_id)
+        log.warning("rejected user_id=%s (owner=%s)", user_id, settings.owner_user_id)
         if chat_id and settings.telegram_bot_token:
             try:
                 TelegramClient(settings).send_message(
                     chat_id,
-                    "Not authorized for this bot.",
+                    "This Farzana is private — single-user only.",
                 )
             except Exception:
                 log.exception("notify unauthorized failed")
         return {"ok": True, "authorized": False}
 
-    # Voice / audio
     voice = message.get("voice") or message.get("audio")
     if voice and chat_id:
         file_id = voice.get("file_id")

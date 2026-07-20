@@ -37,8 +37,8 @@ def _register_webhook_quiet() -> int:
         print("  Put your public https base there (whatever exposes this machine), e.g.")
         print("  PUBLIC_BASE_URL=https://xxxx.example.com")
         return 1
-    if not settings.allowlist_ids:
-        print("WARNING: TELEGRAM_ALLOWLIST_USER_IDS empty — everyone denied")
+    if not settings.owner_user_id:
+        print("WARNING: TELEGRAM_USER_ID empty — everyone will be denied")
 
     try:
         line = register_webhook_from_settings(settings)
@@ -111,7 +111,7 @@ def _cmd_health(_args: argparse.Namespace) -> int:
     print("vault       :", s.vault_path.resolve())
     print("telegram    :", "yes" if s.telegram_bot_token else "NO")
     print("openai      :", "yes" if s.openai_api_key else "NO")
-    print("allowlist   :", len(s.allowlist_ids), "id(s)")
+    print("owner_id    :", s.owner_user_id or "NOT SET")
     print("eager       :", s.celery_task_always_eager)
     print("public_url  :", s.public_base_url or "(set PUBLIC_BASE_URL in .env)")
     print("webhook_url :", s.webhook_url or "(needs PUBLIC_BASE_URL)")

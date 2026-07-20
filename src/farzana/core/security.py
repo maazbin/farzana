@@ -1,4 +1,4 @@
-"""Auth / allowlist rules for inbound channel messages."""
+"""Auth — single-user only."""
 
 from __future__ import annotations
 
@@ -6,16 +6,11 @@ from farzana.core.config import Settings
 
 
 def is_allowed_user(user_id: int | None, settings: Settings) -> bool:
-    """
-    - telegram_allow_all_users=true (default) → any Telegram user
-    - else only ids in TELEGRAM_ALLOWLIST_USER_IDS
-    - empty allowlist + allow_all=false → deny all
-    """
+    """Only TELEGRAM_USER_ID (the owner) may use this bot."""
     if user_id is None:
         return False
-    if settings.telegram_allow_all_users:
-        return True
-    allow = settings.allowlist_ids
-    if not allow:
+    owner = settings.owner_user_id
+    if not owner:
+        # Misconfigured: refuse everyone rather than open the bot
         return False
-    return user_id in allow
+    return int(user_id) == int(owner)

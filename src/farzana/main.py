@@ -27,7 +27,7 @@ async def lifespan(app: FastAPI):
     vault_io.ensure_vault(settings.vault_path)
     log.info("vault ready at %s", settings.vault_path.resolve())
     log.info("webhook path: %s", settings.webhook_path)
-    log.info("allow_all_users=%s", settings.telegram_allow_all_users)
+    log.info("single_user owner_configured=%s", bool(settings.owner_user_id))
     if settings.celery_task_always_eager:
         log.info("CELERY_TASK_ALWAYS_EAGER=true — tasks run in-process")
     start_scheduler(settings)

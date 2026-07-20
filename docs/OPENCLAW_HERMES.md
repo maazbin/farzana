@@ -92,7 +92,7 @@ We *can* add optional long-polling mode later for zero-ngrok local dev; it is an
 3. Config stores `allowed_user_ids`.  
 4. Unpaired users are ignored.
 
-Same security idea as our `TELEGRAM_ALLOWLIST_USER_IDS`.
+Same security idea as our `TELEGRAM_USER_ID` (single owner).
 
 ---
 

@@ -39,7 +39,7 @@ Assuming “we’ll rewrite history later” is not enough — **rotate first**.
 
 1. **Read-only externally** — no tools that email, browse, shell, or pay.  
 2. **Webhook secret** in the URL path; treat it as a password.  
-3. Prefer **allowlist** for personal single-user; open mode is for demos/community and should be used deliberately.  
+3. **Single-user only** — set `TELEGRAM_USER_ID`; reject every other Telegram account.  
 4. Vault Markdown may contain sensitive life data — protect disk access and backups.  
 5. Proactive messaging must respect `/quiet` and daily caps.
 

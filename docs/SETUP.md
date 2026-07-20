@@ -20,31 +20,32 @@ uv sync
 
 ---
 
-## 2. Telegram (single user recommended)
+## 2. Telegram (single-user product — required)
+
+Farzana is **only for one person**. There is no multi-user mode.
 
 ### Create the bot
 
 1. Telegram → **@BotFather** → `/newbot`  
 2. Copy the token → `TELEGRAM_BOT_TOKEN` in `.env`
 
-### Lock to **only you** (single user)
+### Bind the bot to **you**
 
 1. **@userinfobot** → copy your numeric **Id**  
 2. In `.env`:
 
 ```env
-TELEGRAM_ALLOW_ALL_USERS=false
-TELEGRAM_ALLOWLIST_USER_IDS=123456789
+TELEGRAM_BOT_TOKEN=...
+TELEGRAM_USER_ID=123456789
 TELEGRAM_WEBHOOK_SECRET=long-random-string-you-invent
 OPENAI_API_KEY=sk-...
 ```
 
 | Setting | Meaning |
 |---------|---------|
-| `TELEGRAM_ALLOW_ALL_USERS=false` | Only listed ids |
-| `TELEGRAM_ALLOWLIST_USER_IDS` | Your Telegram user id (not the bot’s) |
+| `TELEGRAM_USER_ID` | **Your** Telegram user id (not the bot’s). Only this account works. |
 
-For a public demo only, set `TELEGRAM_ALLOW_ALL_USERS=true` (not recommended for personal memory).
+Anyone else who messages the bot is rejected.
 
 ### OpenAI
 
@@ -132,7 +133,7 @@ uv run farzana --no-webhook   # API only
 
 ## 6. Use the bot
 
-1. Open your bot in Telegram (same account as the allowlist id).  
+1. Open your bot in Telegram (same account as `TELEGRAM_USER_ID`).  
 2. `/start`  
 3. Text or **voice note**  
 4. `Note this: …` · `/close` · `/brief` · `/quiet`  
@@ -144,7 +145,7 @@ uv run farzana --no-webhook   # API only
 | Problem | Fix |
 |---------|-----|
 | Bot silent | Webhook URL must be https; re-run `farzana webhook` after tunnel URL changes |
-| Not authorized | Single-user: your id must match `TELEGRAM_ALLOWLIST_USER_IDS` |
+| Not authorized | Your id must match `TELEGRAM_USER_ID` |
 | ConnectTimeout to api.telegram.org | Network blocks Telegram API — VPN/proxy on the **machine running Farzana** |
 | OpenAI errors | Key / billing |
 

@@ -62,7 +62,7 @@ Personal deploy: `pm2 start ecosystem.config.cjs`, `pm2 logs`, `pm2 restart all`
 | Key | Source |
 |-----|--------|
 | `TELEGRAM_BOT_TOKEN` | @BotFather |
-| `TELEGRAM_ALLOWLIST_USER_IDS` | @userinfobot |
+| `TELEGRAM_USER_ID` | @userinfobot (owner only) |
 | `TELEGRAM_WEBHOOK_SECRET` | you generate |
 | `OPENAI_API_KEY` | platform.openai.com/api-keys |
 | `PUBLIC_BASE_URL` | ngrok https URL |

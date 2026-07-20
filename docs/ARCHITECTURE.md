@@ -11,7 +11,7 @@
 2. **Jobs own intelligence and I/O** — capture, LLM, later TTS/proactive.  
 3. **Vault is truth** — Markdown on disk.  
 4. **Read-only externally** — tool allowlist enforced by simply not implementing forbidden tools.  
-5. **Personal single-user** — allowlist, not multi-tenant RBAC.
+5. **Single-user only** — one `TELEGRAM_USER_ID`; one vault root (not multi-tenant).
 
 ---
 
@@ -53,7 +53,7 @@ src/Farzana/
   main.py                 # create_app(), lifespan
   core/
     config.py             # Settings / env
-    security.py           # allowlist
+    security.py           # single owner id
     logging.py
   api/
     deps.py               # FastAPI Depends
@@ -88,7 +88,7 @@ docs/                     # product + engineering story
 ## 4. Request lifecycle (text message)
 
 1. Telegram POSTs update → `POST /telegram/{secret}`.  
-2. Route checks path secret + allowlist.  
+2. Route checks path secret + owner `TELEGRAM_USER_ID`.  
 3. Enqueues `handle_text_message.delay(chat_id, user_id, text)`.  
 4. Returns `{"ok": true, "queued": true}` quickly.  
 5. Worker: parse commands → `capture` → `dialogue` → `TelegramClient.send_message`.  
@@ -134,7 +134,7 @@ Markdown files  ──►  (later) SQLite FTS + embeddings  ──►  retrieval
 
 | Boundary | Mechanism |
 |----------|-----------|
-| Who can talk to bot | `TELEGRAM_ALLOWLIST_USER_IDS` |
+| Who can talk to bot | `TELEGRAM_USER_ID` only |
 | Who can hit webhook | path secret (+ optional Telegram secret_token later) |
 | What bot can do | no tool registry for external actions |
 | What is true | vault files user can open |

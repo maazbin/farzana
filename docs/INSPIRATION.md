@@ -117,7 +117,7 @@ You still decide. She never seizes the case.
 | “Close the file, list open ends” | `/close` + promise extract |
 | “Tomorrow we review the board” | `/brief`, morning/evening jobs |
 | “This lead is still open” | Promise scan proactive messages |
-| “Different kids, different strengths” | Per-user vaults if multi-user; single-user allowlist for private use |
+| “Different kids, different strengths” | You act; Farzana holds memory (roles, not multi-tenant SaaS) |
 | “No one goes rogue with the evidence” | Read-only: no email/shell/browser tools |
 
 ---
