@@ -61,13 +61,11 @@ Farzana is the teammate who **caught the thread** — files it, and brings open 
 
 ---
 
-## Origin pain (founder story — ADHD + leadership)
+## Origin pain (founder story — ADHD from the start)
 
-This did not start as a pitch deck. It started as a **personal emergency of memory**.
+**ADHD is not a footnote. It is why Farzana exists.**
 
-The founder lives with **ADHD** and also has to **lead** — people, work, promises, ideas that arrive mid-conversation and die by night.
-
-From the earliest notes that began the project (almost word for word):
+The founder has ADHD and must still lead. The product began as a personal emergency of memory — not a market exercise. The earliest brief, almost word for word:
 
 - *I have some idea or some work or someone tells me something and I can’t note it — or even if I do, I forget.*  
 - *I have task notifications, but I want something which cares about me, reminds me, records when I need to note, accepts text, asks when unclear.*  
@@ -75,7 +73,9 @@ From the earliest notes that began the project (almost word for word):
 - *First version on mobile, talk using messaging; later the same mind on PC.*  
 - *It does not do work. Sole purpose: read, remind, encourage, discuss. Not OpenClaw. Not Hermes.*
 
-### Why ADHD was the design brief (not a marketing niche)
+The dramatic public version of this story lives at the top of the root **README** — sell the hard case first.
+
+### Why we “sell ADHD” as the design bar
 
 | ADHD reality under load | Product rule it forced |
 |-------------------------|-------------------------|
@@ -86,10 +86,11 @@ From the earliest notes that began the project (almost word for word):
 | Impulsivity + powerful agents | **Read-only by architecture** — no external tools |
 | Patterns of life are real | Log response/ignore; evolve timing over time |
 
-**ADHD is the stress test**, not the only audience.  
-If it works when the mind is leaky under leadership load, it works for lone operators, overloaded employees, and anyone alone with too many open loops — **without** claiming to diagnose or treat ADHD.
+**Positioning:** ADHD-hard is the highest bar. Pass it, and lone leaders, overloaded ICs, and anyone alone with open loops get a product that was not designed for the fantasy organized user.
 
-**Product name:** Farzana.
+We do **not** claim to diagnose or treat ADHD. We claim infrastructure for a leaky mind under load.
+
+**Product name:** Farzana — see [INSPIRATION.md](./INSPIRATION.md) for Inspector Jamshed.
 
 ---
 

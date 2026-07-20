@@ -1,122 +1,155 @@
 # Farzana
 
-**The aide who listens carefully.**
+**The aide who listens carefully.**  
+**Built by someone with ADHD — for minds that drop the thread.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> *Someone told you something important.*  
-> *You nodded. You meant to write it down.*  
-> *By night, the words were gone — and the cold notification on your phone could not care less.*
+---
 
-**Farzana** is a **read-only Markdown memory aide** on Telegram: she captures what you say (text or voice), keeps it in **files you own**, discusses your open loops, and can come back when follow-through matters — **without** sending email, browsing, or running agent tools on your behalf.
+## My story — from the start
 
-> Not OpenClaw / Hermes (action agents).  
-> Not Pocket (hardware stenographer).  
-> Not a romantic companion bot.
+I have **ADHD**.
+
+I also have to **lead**, build, remember people, and carry more open loops than a notes app was ever designed for.
+
+This project did not begin with a market map. It began with a pattern I could not escape:
+
+> Someone tells me something important.  
+> I mean to write it down.  
+> I can’t — not in that second, not with that app, not while life is still talking.  
+> Sometimes I *do* write it down.  
+> **I still forget.**
+
+I already had task apps. I already had notifications. They did not fail because I was lazy. They failed because they were **cold**.
+
+A red badge does not care that I was in a meeting.  
+A reminder does not know what *Sarah actually said*.  
+A todo list does not talk to me at the end of the day and ask what still hurts.
+
+So I wrote down what I actually wanted — almost exactly like this:
+
+- A **lite personal aide**, not a task robot.  
+- When I have an idea, or work, or **someone tells me something** — capture it.  
+- If I forget to give instructions, **ask me one clear question**.  
+- **Care** enough to remind me — not scream at me.  
+- Talk **during the day** and at **day end**. Discuss my schedule.  
+- Try to **adapt to my pattern of life**.  
+- Live first where I already live: **mobile messaging** — then the same memory on **PC**.  
+- And the line I would not cross:
+
+> **It does not do the work.**  
+> No OpenClaw. No Hermes. No “I’ll just email them for you.”  
+> Sole purpose: **read, remember, remind, encourage, discuss.**
+
+That is the birth certificate of **Farzana**.
+
+ADHD was not a buzzword I bolted on later.  
+**ADHD was the reason the product exists.**
 
 ---
 
-## Why I started this (ADHD, leadership, and a leaky mind)
+## Why ADHD is the product (we sell the hard case)
 
-I did not start Farzana as a startup pitch.
+Most “productivity AI” is designed for a fantasy user: always organized, always opens the app, always trusts the agent.
 
-I started it because **I live with ADHD** — and I also live as someone who has to **lead**, ship, remember people, and hold too many threads at once.
+ADHD under load is the opposite fantasy:
 
-The pain was specific, and it was daily:
+| What ADHD (and high load) actually does | What most tools assume |
+|----------------------------------------|-------------------------|
+| Working memory drops mid-sentence | “You’ll type it into the form” |
+| Interest ≠ importance | “You’ll open the dashboard because it matters” |
+| Notifications train **ignore** | “One more ping will fix it” |
+| Shame after forgetting | “Streaks and guilt will motivate you” |
+| Impulsivity + powerful agents | “Let the agent act for you” |
 
-- Someone tells me something important — **I cannot note it in the moment**.  
-- Even when I *do* note it, **I still forget**.  
-- Task apps ping me like alarms: cold, flat, easy to swipe away.  
-- I wanted something that **cares enough to remind me**, that **talks at the end of the day**, that **discusses my schedule**, that tries to **adapt to my patterns** — not another dashboard I would abandon.  
-- First home had to be **mobile** (messaging I already live in), then the same memory on **PC**.  
-- And the hard line: **it must not do the work for me.** No OpenClaw. No Hermes. No “I’ll just email them.”  
-  Its sole purpose: **read, remember, remind, encourage, discuss** — with emotional intelligence, without emotional dependency.
+Farzana is designed **against** those assumptions.
 
-ADHD did not make me “want a toy.”  
-It made the **hardest user** of memory products: interest-based attention, time blindness, notification blindness, shame after forgetting, impulsivity that makes *agent* tools dangerous.
+### What “ADHD-hard” means in the product
 
-So I designed for that hard case.
+| Reality | Farzana’s answer |
+|---------|------------------|
+| I can’t note in the moment | **Telegram** — text or **voice note**, no new app ritual |
+| Notes die in graveyards | Memory is **Markdown files I can see and edit** |
+| Cold pings fail | **Discussion**, not only alarms — optional **voice** replies |
+| I forget what people said | Named sessions (`Note this: …`) + extract on `/close` |
+| Open loops haunt me | **Proactive** briefs and promise resurfacing (with `/quiet`) |
+| Agents are dangerous when I’m impulsive | **Read-only by architecture** — no email, shell, browse, pay |
+| My patterns are real | Log what I answer or ignore; evolve timing over time |
 
-If Farzana works when your working memory drops mid-conversation, it works for a lot of other people too.
+We do **not** claim Farzana diagnoses or treats ADHD.  
+We claim something sharper for builders and users:
 
----
+> **If it works for an ADHD mind under leadership load, it is not “nice to have.” It is necessary infrastructure for a leaky brain — and a gift for anyone who has ever lost a day.**
 
-## How that helps people who are *not* “just ADHD”
-
-ADHD was the **stress test**, not the only audience.
-
-The same failure mode shows up whenever life has **too many open loops** and **no one holding the thread**:
-
-| Who | What breaks | What Farzana offers |
-|-----|-------------|---------------------|
-| **ADHD brains** | Working memory, cold pings, shame | External memory, voice, resurfacing, quiet mode |
-| **Lone people** | No partner to “remember for me” | Accountability without social debt |
-| **Lone leaders / founders** | Too many promises, no EA | Chief of staff for *memory*, not for execution |
-| **Overloaded employees** | Dropped follow-ups look like character | Close loops before they become performance pain |
-| **Anyone drowning in tools** | Notes + todos + agents, none that *talk back* | One aide over one vault you own |
-
-**Same product, different stories.**  
-We do not claim to diagnose or treat ADHD. We claim a design truth:
-
-> Build for the brain that forgets under load — and you build something kinder for everyone who carries too much alone.
+That is how we **sell ADHD**: not as a pity niche, but as the **highest bar**. Pass that bar, and the product is worth existing.
 
 ---
 
-## The myth: Farzana of Inspector Jamshed (Ishtiaq Ahmed)
+## Who else this is for (same wound, different labels)
 
-Long before productivity apps, many of us grew up with **Inspector Jamshed** — the detective/espionage world of **Ishtiaq Ahmed’s** Urdu novels: local, moral, endless cases, a household name across bookstalls and childhoods.
+ADHD was the **founding fire**. It is not the only passport.
 
-Jamshed did not win alone. Beside him stood his children:
+| If you are… | You might feel… | Farzana is… |
+|-------------|------------------|-------------|
+| ADHD / ADHD-like | Leaky memory, ignored alarms, shame | External working memory that talks back |
+| Alone | No one holds your commitments | Accountability without performing for a partner |
+| A lone leader / founder | Too many promises, no EA | Chief of staff for **memory**, not for execution |
+| Overloaded at work | Dropped follow-ups look like character | A place to close loops before they become performance |
+| Tool-drowned | Notes + todos + agents, none that *care* | One aide, one vault, hard safety rails |
 
-| Name | In the public memory of the myth |
-|------|-----------------------------------|
+Same product. Different landing story. One design stress-test: **the mind that forgets under load.**
+
+---
+
+## The name: Farzana of Inspector Jamshed (Ishtiaq Ahmed)
+
+I did not want another Silicon Valley codename.
+
+I wanted a name from **our** storytelling culture — **Ishtiaq Ahmed’s Inspector Jamshed** universe of Urdu detective and espionage fiction. Local. Moral. Endless cases. A household myth for readers who grew up with digests and bookstalls.
+
+Inspector Jamshed does not win alone. Beside him stand his children:
+
+| Name | In the myth as many of us remember it |
+|------|----------------------------------------|
 | **Mehmood** | Clever, sharp — the quick mind |
-| **Farooq** | Drive, field energy — the push into action |
-| **Farzana** | Present, intelligent — the one who **listens carefully** |
+| **Farooq** | Field energy — motion into danger |
+| **Farzana** | Present, intelligent — she **listens carefully** and holds the thread |
 
-Around them: strategists, scientists, field officers — a **team of different strengths**. Cases mixed crime, conspiracy, and stakes larger than one ego.
+In that public memory, Farzana is not the loudest hero.  
+She is the one who **hears** what was said while others rush into noise.
 
-In that shared cultural memory, **Farzana** is not cast as the loudest hero.  
-She is the one who **hears** what was said, **holds the thread**, and helps the mission when others rush into noise and spectacle.
-
-That is the spirit this project takes — not plots, not licensed characters, not an official franchise product.
-
-**Independent open source.** Inspired by a *quality of attention* our stories already taught us.
-
-The name **Farzana** also carries shades of **wisdom / intelligence** in Persian and Urdu — a second layer under the character memory.
-
-### The parable we built the software on
+That is the spirit of this software:
 
 ```text
 You are the inspector of your own day.
-Too many conversations. Half-promises. Ideas that vanish by night.
-
-Farzana does not seize your badge.
-She catches the thread.
+Farzana catches the thread.
 She files it where you can see it.
-She brings open loops back — in text or voice — when follow-through matters.
-
+She brings open loops back — in text or voice.
 You still decide.
+She never seizes the badge.
 She never acts on the outside world.
 ```
 
-Deep dive: **[docs/INSPIRATION.md](docs/INSPIRATION.md)** · **[docs/STORY.md](docs/STORY.md)**
+**Independent open source.** Not affiliated with or endorsed by Inspector Jamshed rights holders.  
+Inspiration of *attention* — not licensed franchise IP.
+
+**Deep dive:** [docs/INSPIRATION.md](docs/INSPIRATION.md) · [docs/STORY.md](docs/STORY.md)
 
 ---
 
-## What Farzana *is* (product)
-
-**External working memory** you talk to on Telegram:
+## What Farzana does (and refuses)
 
 | She does | She refuses |
 |----------|-------------|
-| Listen (text + voice) | Email, calendar write, browse, shell |
-| Store in **Markdown you own** | Black-box “AI remembered something” only |
+| Listen (Telegram text + voice) | Email, calendar write, browse, shell |
+| Store in **Markdown you own** | Black-box memory you cannot edit |
 | Discuss & encourage from history | Romance / therapist cosplay |
-| Resurface open loops (proactive + `/brief`) | “I’ll just handle it” agent behavior |
-| Adapt via patterns (logged; evolving) | Silent nag without controls (`/quiet`) |
+| Resurface open loops | “I’ll just handle it” agent moves |
+| Adapt via patterns (logged → evolving) | Nag without `/quiet` and caps |
 
-**Docs:** [MOTIVATION](docs/MOTIVATION.md) · [RULES](docs/RULES.md) · [ARCHITECTURE](docs/ARCHITECTURE.md) · [STACK](docs/STACK.md) · [ROADMAP](docs/ROADMAP.md) · [SECURITY](SECURITY.md)
+**Architecture of memory:** files are truth; the model only gets a temporary view.  
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ---
 
@@ -125,13 +158,13 @@ Deep dive: **[docs/INSPIRATION.md](docs/INSPIRATION.md)** · **[docs/STORY.md](d
 | Area | Support |
 |------|---------|
 | Telegram text | Yes |
-| Voice notes → Whisper | Yes |
+| Voice → Whisper | Yes |
 | Voice replies (TTS) | Yes |
 | Per-user Markdown vault | Yes |
-| Named sessions + `/close` extract | Yes |
-| Proactive briefs / promise scan | Yes (UTC; timezone UX on roadmap) |
-| Single-user allowlist **or** open mode | Yes |
-| External actions | **Never** (by design) |
+| Sessions + `/close` extract | Yes |
+| Proactive briefs / promise scan | Yes (UTC; timezones on roadmap) |
+| Single-user allowlist or open mode | Yes |
+| External actions | **Never** |
 
 ---
 
@@ -141,42 +174,43 @@ Deep dive: **[docs/INSPIRATION.md](docs/INSPIRATION.md)** · **[docs/STORY.md](d
 git clone https://github.com/maazbin/farzana.git
 cd farzana
 cp .env.example .env
-# Edit .env — tokens stay local (never commit)
+# Put TELEGRAM_* and OPENAI_API_KEY in .env only — never commit
 
 uv sync
 uv run farzana health
 uv run farzana --no-webhook   # http://127.0.0.1:8000
 ```
 
-Webhook + public URL: **[docs/SETUP.md](docs/SETUP.md)**  
-AWS / Terraform: **[deploy/README.md](deploy/README.md)** · **[deploy/terraform/README.md](deploy/terraform/README.md)**
+Full setup (webhook, single-user Telegram, deploy): **[docs/SETUP.md](docs/SETUP.md)**  
+AWS / Terraform: **[deploy/README.md](deploy/README.md)**
 
 ### Secrets
 
 Never commit `.env`, `*.pem`, `server.env`, or API tokens.  
-If a key leaked in chat or logs — **rotate it**.
+If a key leaked — **rotate it**.
 
 ---
 
 ## Using the bot
 
-1. Run with a public `PUBLIC_BASE_URL` and register webhook.  
-2. Telegram → your bot → `/start` (from your allowlisted account if single-user).  
-3. Send **text** or a **voice note**.  
-4. `Note this: meeting` → dump → `/close` to extract promises.  
-5. `/brief` to discuss open loops; proactive jobs may message later.  
-6. `/quiet` pauses outreach.
+1. Deploy or run with `PUBLIC_BASE_URL` + webhook.  
+2. Telegram → bot → `/start` (your allowlisted account if single-user).  
+3. Send **text** or a **voice note** — the ADHD-friendly path.  
+4. `Note this: meeting` → dump → `/close`.  
+5. `/brief` when you need the board reviewed.  
+6. `/quiet` when the world is too loud.
 
 ---
 
-## Project layout
+## Docs map
 
-```text
-src/farzana/     # FastAPI app, services, workers
-docs/            # story, inspiration, architecture
-deploy/          # EC2 + Terraform (no secrets in git)
-AGENTS.md        # guidance for coding agents
-```
+| Doc | Content |
+|-----|---------|
+| [STORY.md](docs/STORY.md) | Founder ADHD origin + product arc |
+| [INSPIRATION.md](docs/INSPIRATION.md) | Inspector Jamshed / Farzana mythology |
+| [MOTIVATION.md](docs/MOTIVATION.md) | Why / when / when not |
+| [RULES.md](docs/RULES.md) | Hard product rules |
+| [ROADMAP.md](docs/ROADMAP.md) | Future (also GitHub Issues) |
 
 ---
 
@@ -192,4 +226,6 @@ AGENTS.md        # guidance for coding agents
 
 ---
 
-*For everyone who was told to “just write it down” — and still lost the day.*
+*I built this because my mind drops threads under load.*  
+*I open-sourced it so other leaky, ambitious, alone-carrying minds can hold a better thread too.*  
+*Not a cure. A teammate who listens.*

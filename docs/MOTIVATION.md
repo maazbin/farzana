@@ -22,13 +22,16 @@ That inspiration is **emotional and functional**, not a franchise license:
 
 ## Why this product
 
-### Human why (including the founder’s ADHD)
+### Human why (ADHD from day one — we lead with this)
 
-The project began with a founder who has **ADHD** and must still **lead**. The original cry was simple and brutal:
+**Farzana was founded because of ADHD**, not rebranded toward it later.
+
+The founder has ADHD and must still **lead**. The original cry was simple and brutal:
 
 > Someone tells me something — I can’t note it. Even if I note it, I forget. Notifications don’t care. I want something that *cares*, reminds, discusses my day, adapts to my patterns — and **does not do the work for me**.
 
-That is not a feature list. That is a life under load.
+That is not a feature list. That is a life under load.  
+The root **README** tells this story first, dramatically, on purpose: we sell the hard case so soft cases get a product that actually works.
 
 People (with or without an ADHD diagnosis) **lose the moment**:
 
