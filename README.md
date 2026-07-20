@@ -34,6 +34,7 @@ She holds the thread of your day — long voice, short notes, and (optionally) P
 - [Vault layout](#-vault-layout--memory-is-files)
 - [Commands](#-commands-cheat-sheet)
 - [Quick start](#-quick-start)
+- [Status · done vs expected](#-status--done-vs-expected)
 - [Motivation & name](#-motivation--name)
 - [Docs](#-docs)
 
@@ -183,6 +184,10 @@ flowchart TB
 
 Give Farzana **eyes on the PC**, never **hands**.
 
+> **Honest scope:** this is **export → drop folder → `pc-reader`**, not live Google/Outlook login.  
+> Live read-only OAuth is planned → [#14](https://github.com/maazbin/farzana/issues/14).  
+> Syncthing / PDF / recursive watch → [#15](https://github.com/maazbin/farzana/issues/15).
+
 ```mermaid
 flowchart LR
   subgraph PC["💻 Your PC"]
@@ -217,7 +222,7 @@ uv run farzana pc-reader --watch ./FarzanaInbox --once
 uv run farzana pc-reader --watch ./FarzanaInbox
 ```
 
-If the bot runs on a server, run the reader where the vault lives — or **sync** `vault/pc/` (e.g. Syncthing).
+If the bot runs on a server, run the reader where the vault lives — or **sync** `vault/pc/` (e.g. Syncthing — recipe planned in [#15](https://github.com/maazbin/farzana/issues/15)).
 
 ---
 
@@ -260,15 +265,17 @@ flowchart TB
   HAS -->|yes| G
 ```
 
-| Behavior | Reality today |
-|:---------|:--------------|
-| End-of-day discuss | ✅ Evening brief job (UTC hour) |
-| Occasional “still open?” | ✅ One open promise at a time |
-| Daily spam protection | ✅ Default max **3** proactive / day |
-| Full task-manager nagging | ❌ Not a todo app |
-| True pattern learning | ⏳ Logged events; evolve later |
+| Behavior | Reality today | Track |
+|:---------|:--------------|:------|
+| End-of-day discuss | ✅ Evening brief job (**UTC** hour) | [#1](https://github.com/maazbin/farzana/issues/1) timezone |
+| Occasional “still open?” | ✅ One open promise · shares daily cap | [#16](https://github.com/maazbin/farzana/issues/16) |
+| Daily spam protection | ✅ Default max **3** proactive / day | [#12](https://github.com/maazbin/farzana/issues/12) |
+| “Remind me in 4 hours” / sleep | ❌ Not a timer yet | [#17](https://github.com/maazbin/farzana/issues/17) |
+| Full task-manager nagging | ❌ Not a todo app | by design |
+| True pattern learning | ⏳ Events logged only | [#2](https://github.com/maazbin/farzana/issues/2) |
 
-Manual anytime: **`/brief`** · silence: **`/quiet`**
+Manual anytime: **`/brief`** · silence: **`/quiet`**  
+She **can** message you on Telegram (replies + scheduled briefs/scans) when the process is up — see [Status](#-status--done-vs-expected).
 
 ---
 
@@ -410,7 +417,58 @@ flowchart LR
 ### Secrets
 
 Never commit `.env`, `*.pem`, bot tokens, or API keys.  
-Rotate anything that leaked. See [SECURITY.md](SECURITY.md).
+Rotate anything that leaked. See [SECURITY.md](SECURITY.md).  
+Log scrubbing (tokens in httpx URLs) → [#18](https://github.com/maazbin/farzana/issues/18).
+
+---
+
+## Status · done vs expected
+
+**Living checklist:** [issue #13 · Status board](https://github.com/maazbin/farzana/issues/13) · all issues: [github.com/maazbin/farzana/issues](https://github.com/maazbin/farzana/issues)
+
+### Done today
+
+| Area | What works |
+|:-----|:-----------|
+| Chat | Text + voice in · TTS out · single-user only |
+| Modes | Natural language + slash: listen / stop / close / quiet / brief |
+| Pocket-style | Long `/listen` (or “start listening”) multi-clip sessions |
+| Memory | Markdown vault · `/close` promise extract |
+| Proactive | Morning/evening brief + open-loop scan · daily cap · `/quiet` |
+| Outbound | **Can message you** on Telegram when process is running |
+| PC eyes | **Optional** `farzana pc-reader`: drop `.ics`/`.eml`/`.md` → `vault/pc/` (not live OAuth) |
+
+### Expected next (open issues)
+
+| Want | Issue |
+|:-----|:------|
+| Local timezone for briefs | [#1](https://github.com/maazbin/farzana/issues/1) |
+| Pattern “adapt” over time | [#2](https://github.com/maazbin/farzana/issues/2) |
+| Search over vault | [#3](https://github.com/maazbin/farzana/issues/3) |
+| CI + secret scan | [#4](https://github.com/maazbin/farzana/issues/4) |
+| Tests | [#6](https://github.com/maazbin/farzana/issues/6) |
+| Long-polling local DX | [#7](https://github.com/maazbin/farzana/issues/7) |
+| WhatsApp adapter | [#8](https://github.com/maazbin/farzana/issues/8) |
+| Pocket/export import | [#9](https://github.com/maazbin/farzana/issues/9) |
+| Mermaid maps on close | [#10](https://github.com/maazbin/farzana/issues/10) |
+| Installer | [#11](https://github.com/maazbin/farzana/issues/11) |
+| Proactivity UX polish | [#12](https://github.com/maazbin/farzana/issues/12) |
+| Read-only OAuth calendar/mail | [#14](https://github.com/maazbin/farzana/issues/14) |
+| PC reader: Syncthing / PDF / recursive | [#15](https://github.com/maazbin/farzana/issues/15) |
+| Stronger gentle task check-ins | [#16](https://github.com/maazbin/farzana/issues/16) |
+| Timed soft reminders (“in 4h”, sleep) | [#17](https://github.com/maazbin/farzana/issues/17) |
+| Scrub tokens from logs | [#18](https://github.com/maazbin/farzana/issues/18) |
+
+### Advice (product + contributors)
+
+1. **Prefer one issue per PR** — tick the checklist on that issue when done.  
+2. **Don’t oversell** — PC calendar and “remind me later” are partial until their issues close.  
+3. **Read-only is hard** — no email send, calendar book, browser agent, or shell.  
+4. **Proactive is capped** — briefs + scans share a daily max; `/quiet` always wins.  
+5. **Files are truth** — vault Markdown over opaque model memory.  
+6. **Security** — never commit `.env` / keys; rotate if leaked ([SECURITY.md](SECURITY.md)).
+
+Summary also in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ---
 
